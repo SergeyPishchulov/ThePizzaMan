@@ -37,5 +37,12 @@ namespace GameNoGame.Tests
             var player = new Player(new Vector(100, 100));
             Assert.AreEqual(true, player.IsAlive());
         }
+        [Test]
+        public void CreateRectangle()
+        {
+            var r = new Rectangle(new Vector(0, 0), new Size(10, 10));
+            var map = new Map(new List<Rectangle> { r });
+            Assert.AreEqual(map.MapObjects[0], r);
+        }
     }
 }
