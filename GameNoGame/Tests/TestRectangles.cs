@@ -9,34 +9,8 @@ using System.Threading.Tasks;
 namespace GameNoGame.Tests
 {
     [TestFixture]
-    class TestPlayer
-    {
-        [Test]
-        public void TestMovePLayerToRight()
-        {
-            var player = new Player(new Vector(100, 100));
-            player.Move(new Vector(128, 0));
-
-            var expected = new Vector(228, 100);
-            Assert.AreEqual(expected, player.Location);
-        }
-
-        [Test]
-        public void TestMovePLayerToLeft()
-        {
-            var player = new Player(new Vector(100, 100));
-            player.Move(new Vector(-10, 0));
-
-            var expected = new Vector(90, 100);
-            Assert.AreEqual(expected, player.Location);
-        }
-
-        [Test]
-        public void TestPlayerIsAlive()
-        {
-            var player = new Player(new Vector(100, 100));
-            Assert.AreEqual(true, player.IsAlive());
-        }
+    class TestRectangles
+    {        
         [Test]
         public void CreateRectangle()
         {
@@ -48,7 +22,7 @@ namespace GameNoGame.Tests
         public void NotIntersectedRectangles()
         {
             var r1 = new Rectangle(new Vector(0, 0), new Size(10, 10));
-            var r2 = new Rectangle(new Vector(50,50), new Size(10, 10));
+            var r2 = new Rectangle(new Vector(50, 50), new Size(10, 10));
             var map = new Map(new List<Rectangle> { r1 });
             var actual = map.IntersectWithMapObj(r2);
             Assert.IsFalse(actual);
@@ -57,17 +31,17 @@ namespace GameNoGame.Tests
         public void IntersectedRectanglesByLargeArea()
         {
             var r1 = new Rectangle(new Vector(0, 0), new Size(10, 10));
-            var r2= new Rectangle(new Vector(5, 5), new Size(10, 10));
-            var map = new Map(new List<Rectangle> { r1});
+            var r2 = new Rectangle(new Vector(5, 5), new Size(10, 10));
+            var map = new Map(new List<Rectangle> { r1 });
             var actual = map.IntersectWithMapObj(r2);
-            Assert.IsTrue( actual);
+            Assert.IsTrue(actual);
         }
 
         [Test]
         public void IntersectedRectanglesBy1Point()
         {
             var r1 = new Rectangle(new Vector(0, 0), new Size(10, 10));
-            var r2 = new Rectangle(new Vector(10,10), new Size(10, 10));
+            var r2 = new Rectangle(new Vector(10, 10), new Size(10, 10));
             var map = new Map(new List<Rectangle> { r1 });
             var actual = map.IntersectWithMapObj(r2);
             Assert.IsTrue(actual);
