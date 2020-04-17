@@ -70,7 +70,7 @@ namespace GameNoGame
         public void PlayAnimation(Graphics g)
         {
             g.DrawImage(Image, 
-                new Rectangle(
+                new System.Drawing.Rectangle(
                     new Point(Creature.Location.X - Flip * Creature.Size.Width / 2, Creature.Location.Y),
                     new Size(Flip * Creature.Size.Width, Creature.Size.Height)),
                     128 * CurrentFrame, 128 * CurrentAnimation, Creature.Size.Width, Creature.Size.Height,

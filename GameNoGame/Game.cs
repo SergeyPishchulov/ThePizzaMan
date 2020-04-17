@@ -31,6 +31,11 @@ namespace GameNoGame
             Stage = stage;
             StageChanged?.Invoke(stage); //Вызов события StageChanged
         }
+        public void Move(Rectangle mover, Vector movement)
+        {
+            if (Map.CanMove(mover, movement))
+                mover.Location += movement;
+        }
 
 
         /* методы игрока: Walk, Run, Jump, ShotRope */

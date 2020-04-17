@@ -22,7 +22,7 @@ namespace GameNoGame
             InitializeComponent();
 
             timer1.Interval = 40;
-            timer1.Tick += new EventHandler(Update);
+            //timer1.Tick += new EventHandler(Update);
 
             KeyDown += new KeyEventHandler(OnKeyDown);
             KeyUp += new KeyEventHandler(OnKeyUp);
@@ -89,13 +89,13 @@ namespace GameNoGame
             timer1.Start();
         }
 
-        public void Update(object sender, EventArgs e)
-        {
-            if (creature.IsMoving)
-                creature.Creature.Move(creature.offset);
+        //public void Update(object sender, EventArgs e)
+        //{
+        //    if (creature.IsMoving)
+        //        creature.Creature.Move(creature.offset);
 
-            Invalidate();
-        }
+        //    Invalidate();
+        //}
 
         private void OnPaint(object sender, PaintEventArgs e)
         {
