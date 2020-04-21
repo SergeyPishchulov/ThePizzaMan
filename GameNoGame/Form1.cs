@@ -15,20 +15,22 @@ namespace GameNoGame
     {
         public Image creatureImage;
         public CreatureAnimation creature;
-
+        public Game game;
 
         public Form1()
         {
             InitializeComponent();
 
             timer1.Interval = 40;
-            //timer1.Tick += new EventHandler(Update);
+            timer1.Tick += new EventHandler(Update);
 
             KeyDown += new KeyEventHandler(OnKeyDown);
             KeyUp += new KeyEventHandler(OnKeyUp);
 
             Init();
         }
+
+
 
         public void OnKeyUp(object sender, KeyEventArgs e)
         {
@@ -44,12 +46,14 @@ namespace GameNoGame
                 case Keys.W:
                     creature.offset = new Vector(0, -1);
                     creature.IsMoving = true;
+                    game.Move(creature.Creature, creature.offset);
                     creature.SetAnimation(0);
                     break;
 
                 case Keys.S:
                     creature.offset = new Vector(0, 1);
                     creature.IsMoving = true;
+                    game.Move(creature.Creature, creature.offset);
                     creature.SetAnimation(0);
                     break;
 
@@ -57,20 +61,21 @@ namespace GameNoGame
                     creature.offset = new Vector(-1, 0);
                     creature.IsMoving = true;
                     creature.Flip = -1;
+                    game.Move(creature.Creature, creature.offset);
                     creature.SetAnimation(0);
                     break;
 
                 case Keys.D:
                     creature.offset = new Vector(1, 0);
+                    game.Move(creature.Creature, creature.offset);
                     creature.IsMoving = true;
                     creature.Flip = 1;
                     creature.SetAnimation(0);
                     break;
 
                 case Keys.Space:
-                    creature.offset = new Vector(0, 0);
-                    creature.IsMoving = false;
-                    creature.SetAnimation(2);
+                    game.Jump(creature.Creature);
+                    creature.SetAnimation(0);
                     break;
             }
         }
@@ -81,26 +86,39 @@ namespace GameNoGame
                 Path.Combine(new DirectoryInfo(
                     Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(), "Sprites\\Pizza1.png"));
 
-            creature = new CreatureAnimation(new Player(new Vector(200, 500)),
+            creature = new CreatureAnimation(new Player(new Vector(200, 500), new Size(128, 128)),
                 Frames.IdleFrames,
                 Frames.RunFrames,
                 Frames.AttackFrames,
                 Frames.DeathFrames, creatureImage);
+
+            game = new Game(new Map(new List<Rectangle>() {
+                new Rectangle(new Vector(0, 629), new Size(1000, 100)),(Player)creature.Creature
+            }), (Player)creature.Creature);
+
             timer1.Start();
         }
 
-        //public void Update(object sender, EventArgs e)
-        //{
-        //    if (creature.IsMoving)
-        //        creature.Creature.Move(creature.offset);
+        public void Update(object sender, EventArgs e)
+        {
+            //if (creature.IsMoving)
+            //    game.Move(creature.Creature, creature.offset);
+            game.MakeGravity();
+            Invalidate();
+        }
 
-        //    Invalidate();
-        //}
+        private System.Drawing.Rectangle Cast(Rectangle r)
+        {
+            return new System.Drawing.Rectangle(new Point(r.Location.X, r.Location.Y), r.Size);
+        }
 
         private void OnPaint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             creature.PlayAnimation(g);
+            g.DrawRectangle(new Pen(Color.Black), Cast(game.Map.MapObjects[0]));
+
+            
         }
     }
 }

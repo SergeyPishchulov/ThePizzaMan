@@ -5,17 +5,17 @@ namespace GameNoGame
 {
     public class Player : Rectangle, ICreature
     {
-        public Vector Location { get; set; }
-        public Size Size { get; }
+        //public Vector Location { get; set; }
+        //public Size Size { get; set; }
         public int Health { get; }
 
         public CreatureState State;
 
-        public Player(Vector location, Size size = default) : base(location, size)
+        public Player(Vector location, Size size) : base(location, size)
         {
             Location = location;
             Health = 100;
-            Size = new Size(128, 128);
+            Size = size;
             State = 0;
         }        
 

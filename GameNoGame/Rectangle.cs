@@ -17,6 +17,7 @@ namespace GameNoGame
             Location = location;
             Size = size;
         }
+
         public static bool AreIntersected(Rectangle r1, Rectangle r2)
         {
             var (r1Left, r1Right) = GetXBorders(r1);

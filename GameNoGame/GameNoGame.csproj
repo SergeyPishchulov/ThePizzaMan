@@ -72,6 +72,7 @@
     <Compile Include="Creatures\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\TestJump.cs" />
     <Compile Include="Tests\TestRectangles.cs" />
     <Compile Include="Tests\TestPlayer.cs" />
     <Compile Include="Tests\TestWalls.cs" />

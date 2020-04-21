@@ -34,7 +34,7 @@ namespace GameNoGame.Tests
         [Test]
         public void TestPlayerIsAlive()
         {
-            var player = new Player(new Vector(100, 100));
+            var player = new Player(new Vector(100, 100), new Size(128, 128));
             Assert.AreEqual(true, player.IsAlive());
         }        
     }
