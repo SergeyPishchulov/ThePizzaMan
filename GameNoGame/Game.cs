@@ -24,9 +24,8 @@ namespace GameNoGame
             Player = player;
         }
 
-        public void Start(Map map /*или название карты*/)
+        public void Start(Map map )
         {
-            // каким-то образом создание карты
             ChangeStage(GameStage.Setup);
         }
 
@@ -45,57 +44,43 @@ namespace GameNoGame
         public void Jump(ICreature mover)
         {
             if (!Map.CanMove(mover, new Vector(0, 1)) //игрок стоит на поверхности
-                && Map.CanMove(mover, new Vector(0, -2 * mover.Size.Height))) // над ним нет препятсвий
-            {
-                FeelGravity(mover, new Vector(0, 5));
-            }
+                && Map.CanMove(mover, new Vector(0, 2 * mover.Size.Height))) // над ним нет препятсвий
+                GoUp(mover);
         }
 
         public void MakeGravity()
         {
-            //Map.MapObjects.Where()
             foreach (var o in Map.MapObjects)
             {
                 if (o is ICreature)
-                    FeelGravity((ICreature)o, Vector.Zero);
+                    Fall((ICreature)o);
             }
         }
 
-        public void FeelGravity(ICreature mover, Vector startVelocity)
+        public void GoUp(ICreature mover)
         {
             var startTime = DateTime.Now;
-            var dTime = DateTime.Now;
-            var velocity = startVelocity;
-            var g = 10;
-
-            if (velocity != Vector.Zero)
-            {
-                while (velocity.Y > 0 && Map.CanMove(mover, new Vector(0, 10)))
-                {
-                    var tFromStart = (int)((DateTime.Now - startTime).TotalSeconds / 10);
-                    velocity = new Vector(velocity.X, velocity.Y - g * tFromStart);
-                    FeelMomentGravity(mover, tFromStart, g);
-                }
-            }
-
-            startTime = DateTime.Now;
-            while (Map.CanMove(mover, new Vector(0, -10)))
+            var g= 10;
+            var velocity = Vector.Zero;
+            while (Map.CanMove(mover, new Vector(0, 10)) && velocity.Y > 0)
             {
                 var tFromStart = (int)((DateTime.Now - startTime).TotalSeconds / 10);
-                velocity = new Vector(velocity.X, velocity.Y + g * tFromStart);
-                FeelMomentGravity(mover, tFromStart, -1 * g);
+                velocity = new Vector(0, g * tFromStart);
+                Move(mover, new Vector(0, g * tFromStart));
+                Thread.Sleep(10);
             }
-            var a = 10;
         }
 
-        public void FeelMomentGravity(ICreature mover, int tFromStart, int g)
+        public void Fall(ICreature mover)
         {
-            var dy = g * tFromStart;
-            Move(mover, new Vector(0, dy));
-            Thread.Sleep(10);
+            var startTime = DateTime.Now;
+            var g = -10;
+            while (Map.CanMove(mover, new Vector(0, -10)) )
+            {
+                var tFromStart = (int)((DateTime.Now - startTime).TotalSeconds / 10);
+                Move(mover, new Vector(0, g * tFromStart));
+                Thread.Sleep(10);
+            }         
         }
-
-
-        /* методы игрока: Walk, Run, Jump, ShotRope */
     }
 }
