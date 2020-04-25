@@ -23,8 +23,7 @@ namespace GameNoGame.Tests
         {
             var r1 = new Rectangle(new Vector(0, 0), new Size(10, 10));
             var r2 = new Rectangle(new Vector(50, 50), new Size(10, 10));
-            var map = new Map(new List<Rectangle> { r1 });
-            var actual = map.IntersectWithMapObj(r2);
+            var actual = Rectangle.AreIntersected(r1,r2);
             Assert.IsFalse(actual);
         }
         [Test]
@@ -32,8 +31,7 @@ namespace GameNoGame.Tests
         {
             var r1 = new Rectangle(new Vector(0, 0), new Size(10, 10));
             var r2 = new Rectangle(new Vector(5, 5), new Size(10, 10));
-            var map = new Map(new List<Rectangle> { r1 });
-            var actual = map.IntersectWithMapObj(r2);
+            var actual = Rectangle.AreIntersected(r1, r2);
             Assert.IsTrue(actual);
         }
 
@@ -42,8 +40,7 @@ namespace GameNoGame.Tests
         {
             var r1 = new Rectangle(new Vector(0, 0), new Size(10, 10));
             var r2 = new Rectangle(new Vector(10, 10), new Size(10, 10));
-            var map = new Map(new List<Rectangle> { r1 });
-            var actual = map.IntersectWithMapObj(r2);
+            var actual = Rectangle.AreIntersected(r1, r2);
             Assert.IsTrue(actual);
         }
 
@@ -52,8 +49,7 @@ namespace GameNoGame.Tests
         {
             var r1 = new Rectangle(new Vector(0, 0), new Size(10, 10));
             var r2 = new Rectangle(new Vector(10, 0), new Size(10, 10));
-            var map = new Map(new List<Rectangle> { r1 });
-            var actual = map.IntersectWithMapObj(r2);
+            var actual = Rectangle.AreIntersected(r1, r2);
             Assert.IsTrue(actual);
         }
     }

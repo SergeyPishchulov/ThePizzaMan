@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace GameNoGame
 {
-    public interface ICreature
+    public interface ICreature 
     {
         Vector Location { get; set; }
         Size Size { get; }
         int Health { get; }
 
-        void Move(Vector movement);
+        //void Move(Vector movement);
 
-        bool CanMove(Vector location);
+        //bool CanMove(Vector location);
 
         bool IsAlive();
     }

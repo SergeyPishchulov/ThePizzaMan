@@ -3,15 +3,13 @@ using System.Drawing;
 
 namespace GameNoGame
 {
-    public class Monster : ICreature
+    public class Monster : Rectangle, ICreature
     {
-        public Vector Location { get; set; }
-        public Size Size { get; }
         public int Health { get; }
 
         public CreatureState State;
 
-        public Monster(Vector location)
+        public Monster(Vector location, Size size=default ) : base(location, size)
         {
             Location = location;
             Health = 100;

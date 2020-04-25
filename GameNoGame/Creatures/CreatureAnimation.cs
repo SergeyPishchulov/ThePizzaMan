@@ -10,12 +10,12 @@ namespace GameNoGame
     public class CreatureAnimation
     {
         public bool IsMoving;
+        public bool IsJumping;
         public ICreature Creature;
 
         public int Flip;
+        public int jumpCount;
         public Vector offset;
-        public int dx;
-        public int dy;
 
         public int IdleFrames;
         public int RunFrames;
@@ -70,8 +70,8 @@ namespace GameNoGame
         public void PlayAnimation(Graphics g)
         {
             g.DrawImage(Image, 
-                new Rectangle(
-                    new Point(Creature.Location.X - Flip * Creature.Size.Width / 2, Creature.Location.Y),
+                new System.Drawing.Rectangle(
+                    new Point(Creature.Location.X - Flip * Creature.Size.Width / 2, Creature.Location.Y - Creature.Size.Height / 2),
                     new Size(Flip * Creature.Size.Width, Creature.Size.Height)),
                     128 * CurrentFrame, 128 * CurrentAnimation, Creature.Size.Width, Creature.Size.Height,
                     GraphicsUnit.Pixel);

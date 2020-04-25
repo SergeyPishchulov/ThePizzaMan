@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace GameNoGame
 {
-    public interface IMapObject
-    {
-        List<Rectangle> MapObjects { get; }
-    }
+    //public interface IMapRect
+    //{
+    //    Vector Location { get; set; }
+    //    Size Size { get; set; }
+
+    //}
 }

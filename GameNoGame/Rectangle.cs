@@ -12,11 +12,16 @@ namespace GameNoGame
         public Vector Location { get; set; }
         public Size Size { get; set; }
 
+        public Vector LeftTopLocation { get; set; }
+
         public Rectangle(Vector location, Size size)
         {
             Location = location;
+            LeftTopLocation = new Vector(location.X - size.Width / 2,
+                                         location.Y - size.Height / 2);
             Size = size;
         }
+
         public static bool AreIntersected(Rectangle r1, Rectangle r2)
         {
             var (r1Left, r1Right) = GetXBorders(r1);
@@ -40,7 +45,10 @@ namespace GameNoGame
 
         static bool ProjectionIntersect(int minA, int maxA, int minB, int maxB)
         {
-            return (minA <= minB) && (maxA >= minB) || (minB <= minA) && (maxB >= minA);
+            return (minA <= minB) && (maxA >= minB)
+                || (minB <= minA) && (maxB >= minA);
+
+            //return minA <= maxB && minB <= maxA;
         }
 
     }
