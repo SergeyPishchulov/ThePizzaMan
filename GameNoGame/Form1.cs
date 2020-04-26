@@ -30,43 +30,45 @@ namespace GameNoGame
 
             Init();
         }
-         
+
         public void OnKeyUp(object sender, KeyEventArgs e)
         {
             animation.MoveOffset = Vector.Zero;
             animation.JumpOffset = Vector.Zero;
 
             animation.IsMoving = false;
-            animation.IsJumping= false;
+            animation.IsJumping = false;
             animation.SetAnimation(0);
         }
 
         public void OnKeyDown(object sender, KeyEventArgs e)
         {
-            
-            switch (e.KeyCode)
+
+
+            if (e.KeyCode == Keys.A)
             {
-                case Keys.A:
-                    animation.MoveOffset = new Vector(-1, 0);
-                    animation.IsMoving = true;
-                    animation.Flip = -1;
-                    animation.SetAnimation(0);
-                    break;
+                animation.MoveOffset = new Vector(-1, 0);
+                animation.IsMoving = true;
+                animation.Flip = -1;
+                animation.SetAnimation(0);
+            }
 
-                case Keys.D:
-                    animation.MoveOffset = new Vector(1, 0);
-                    animation.IsMoving = true;
-                    animation.Flip = 1;
-                    animation.SetAnimation(0);
-                    break;
+            if (e.KeyCode == Keys.D)
+            {
+                animation.MoveOffset = new Vector(1, 0);
+                animation.IsMoving = true;
+                animation.Flip = 1;
+                animation.SetAnimation(0);
+            }
 
-                case Keys.Space:
-                    animation.JumpOffset = new Vector(0, -30);
-                    animation.IsJumping = true;
-                    animation.SetAnimation(0);
-                    break;
+            if (e.KeyCode == Keys.Space)
+            {
+                animation.JumpOffset = new Vector(0, -30);
+                animation.IsJumping = true;
+                animation.SetAnimation(0);
             }
         }
+
 
         public void Init()
         {
@@ -146,12 +148,12 @@ namespace GameNoGame
 
             g.DrawImage(new Bitmap(
             Path.Combine(new DirectoryInfo(
-                    Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(), 
+                    Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(),
                     "Sprites\\OneBuilding.png")), rectangle3);
 
             g.DrawImage(new Bitmap(
             Path.Combine(new DirectoryInfo(
-                    Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(), 
+                    Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(),
                     "Sprites\\OneBuilding.png")), rectangle4);
         }
     }
