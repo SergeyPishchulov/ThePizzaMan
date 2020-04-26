@@ -64,3 +64,4 @@ C:\Users\kryaz\source\repos\GameNoGame\Game-Player-s-methods-at-Game-Class\GameN
 C:\Users\kryaz\source\repos\GameNoGame\Game-Player-s-methods-at-Game-Class\GameNoGame\bin\Debug\nunit.framework.xml
 C:\Users\kryaz\source\repos\GameNoGame\Game-Player-s-methods-at-Game-Class\GameNoGame\obj\Debug\GameNoGame.csproj.CopyComplete
 C:\Users\kryaz\source\repos\GameNoGame\Game-Player-s-methods-at-Game-Class\GameNoGame\obj\Debug\GameNoGame.StartControl.resources
+C:\Users\LCM\Documents\GitHub\Game\GameNoGame\obj\Debug\GameNoGame.StartControl.resources

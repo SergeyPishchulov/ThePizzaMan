@@ -22,7 +22,7 @@ namespace GameNoGame
         {
             InitializeComponent();
 
-            timer1.Interval = 30;
+            timer1.Interval = 10;
             timer1.Tick += new EventHandler(Update);
 
             KeyDown += new KeyEventHandler(OnKeyDown);
@@ -33,31 +33,35 @@ namespace GameNoGame
          
         public void OnKeyUp(object sender, KeyEventArgs e)
         {
-            animation.offset = new Vector(0, 0);
+            animation.MoveOffset = Vector.Zero;
+            animation.JumpOffset = Vector.Zero;
+
             animation.IsMoving = false;
+            animation.IsJumping= false;
             animation.SetAnimation(0);
         }
 
         public void OnKeyDown(object sender, KeyEventArgs e)
         {
+            
             switch (e.KeyCode)
             {
                 case Keys.A:
-                    animation.offset = new Vector(-10, 0);
+                    animation.MoveOffset = new Vector(-1, 0);
                     animation.IsMoving = true;
                     animation.Flip = -1;
                     animation.SetAnimation(0);
                     break;
 
                 case Keys.D:
-                    animation.offset = new Vector(10, 0);
+                    animation.MoveOffset = new Vector(1, 0);
                     animation.IsMoving = true;
                     animation.Flip = 1;
                     animation.SetAnimation(0);
                     break;
 
                 case Keys.Space:
-                    animation.offset = new Vector(0, -30);
+                    animation.JumpOffset = new Vector(0, -30);
                     animation.IsJumping = true;
                     animation.SetAnimation(0);
                     break;
@@ -71,7 +75,7 @@ namespace GameNoGame
                     Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(),
                     "Sprites\\Pizza1.png"));
 
-            animation = new CreatureAnimation(new Player(new Vector(100, 480), new Size(128, 128)),
+            animation = new CreatureAnimation(new Player(new Vector(250, 480), new Size(128, 128)),
                 Frames.IdleFrames,
                 Frames.RunFrames,
                 Frames.AttackFrames,
@@ -81,23 +85,26 @@ namespace GameNoGame
                 new Rectangle(new Vector(150, 700), new Size(1500, 300)),
                 new Rectangle(new Vector(1600, 700), new Size(1000, 300)),
                 new Rectangle(new Vector(600, 400), new Size(220, 340)),
+                new Rectangle(new Vector(0, 400), new Size(220, 340)),
                 (Player)animation.Creature
             }), (Player)animation.Creature);
 
             timer1.Start();
         }
 
-        public void Update(object sender, EventArgs e)
+        private void Update(object sender, EventArgs e)
         {
-            if (animation.IsMoving)
-                game.Move(animation.Creature, animation.offset);
+            //if (animation.IsMoving)
+            //    game.Move(animation.Creature, animation.MoveOffset);
 
-            if (animation.IsJumping)
-                game.Jump(animation.Creature, animation.offset);
+            //if (animation.IsJumping)
+            //    game.Jump(animation.Creature, animation.JumpOffset);
 
-            game.Move(animation.Creature, gratity);
-
+            //game.Move(animation.Creature, gratity);
+            game.OnTick(animation.MoveOffset, animation.IsJumping);
             Invalidate();
+            //animation.MoveOffset = Vector.Zero;
+            //animation.JumpOffset = Vector.Zero;
         }
 
 
@@ -118,6 +125,11 @@ namespace GameNoGame
                 game.Map.MapObjects[2].LeftTopLocation.Y,
                 game.Map.MapObjects[2].Size.Width, game.Map.MapObjects[2].Size.Height);
 
+            var rectangle4 = new System.Drawing.Rectangle(
+                game.Map.MapObjects[3].LeftTopLocation.X,
+                game.Map.MapObjects[3].LeftTopLocation.Y,
+                game.Map.MapObjects[3].Size.Width, game.Map.MapObjects[3].Size.Height);
+
 
             Graphics g = e.Graphics;
             animation.PlayAnimation(g);
@@ -136,6 +148,11 @@ namespace GameNoGame
             Path.Combine(new DirectoryInfo(
                     Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(), 
                     "Sprites\\OneBuilding.png")), rectangle3);
+
+            g.DrawImage(new Bitmap(
+            Path.Combine(new DirectoryInfo(
+                    Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(), 
+                    "Sprites\\OneBuilding.png")), rectangle4);
         }
     }
 }

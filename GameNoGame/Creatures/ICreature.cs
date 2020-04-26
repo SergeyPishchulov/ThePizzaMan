@@ -9,7 +9,7 @@ namespace GameNoGame
 {
     public interface ICreature 
     {
-        Vector Location { get; set; }
+        Vector LeftTopLocation { get; set; }
         Size Size { get; }
         int Health { get; }
 

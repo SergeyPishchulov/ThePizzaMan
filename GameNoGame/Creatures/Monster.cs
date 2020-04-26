@@ -11,7 +11,8 @@ namespace GameNoGame
 
         public Monster(Vector location, Size size=default ) : base(location, size)
         {
-            Location = location;
+            LeftTopLocation = location;
+
             Health = 100;
             Size = new Size(128, 128);
             State = 0;

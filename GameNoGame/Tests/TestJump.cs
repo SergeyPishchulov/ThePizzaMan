@@ -26,10 +26,10 @@ namespace GameNoGame.Tests
             });
             var game = new Game(map, player);
 
-            game.Jump(player, new Vector(0, -30));
+            game.Jump(player);
             var expectedLocation = new Vector(100, 450);
 
-            Assert.AreEqual(expectedLocation, player.Location);
+            Assert.AreEqual(expectedLocation, player.LeftTopLocation);
         }
 
         [Test]
@@ -46,10 +46,10 @@ namespace GameNoGame.Tests
             });
             var game = new Game(map, player);
 
-            game.Jump(player, new Vector(0, -30));
+            game.Jump(player);
             var expectedLocation = new Vector(100, 400);
 
-            Assert.AreEqual(expectedLocation, player.Location);
+            Assert.AreEqual(expectedLocation, player.LeftTopLocation);
         }
     }
 }

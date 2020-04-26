@@ -36,18 +36,37 @@ namespace GameNoGame
             StageChanged?.Invoke(stage); //Вызов события StageChanged
         }
 
+        public void OnTick(Vector MoveOffset, bool needJump)
+        {
+            Move(Player, 10 * MoveOffset); //по X
+            if (needJump && StayOnGround(Player))
+                Jump(Player);
+            Player.Velocity += new Vector(0, 10);//gravity
+            Move(Player, Player.Velocity);
+            if (StayOnGround(Player)) Player.Velocity = new Vector(Player.Velocity.X, 0);
+        }
+
+        
+
         public void Move(ICreature mover, Vector movement)
         {
             if (Map.CanMove(mover, movement))
-                mover.Location += movement;
+                mover.LeftTopLocation += movement;
+            else
+            {
+                var part =new Vector(movement.X/10, movement.Y/10);
+                for (var i = 0; i < 10; i++)
+                    Move(mover, part);
+            }
         }
 
-        public void Jump(ICreature mover, Vector movement)
+        public bool StayOnGround(ICreature mover) => !Map.CanMove(mover, new Vector(0, 10));
+
+        public void Jump(ICreature mover)
         {
-            if (!Map.CanMove(mover, new Vector(0, 10)))
-                Move(mover, movement);
+            Player.Velocity += new Vector(0, -70); 
         }
-        
+
         /* методы игрока: Walk, Run, Jump, ShotRope */
     }
 }

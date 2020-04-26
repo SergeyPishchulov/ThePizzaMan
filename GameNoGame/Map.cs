@@ -18,7 +18,7 @@ namespace GameNoGame
 
         public bool CanMove(ICreature mover, Vector movement)
         {
-            var destination = new Rectangle(mover.Location + movement, mover.Size);
+            var destination = new Rectangle(mover.LeftTopLocation + movement, mover.Size);
 
             var res=MapObjects
                 .Where(o => !(o is ICreature)) //умеет ходить только сквозь ICreature
