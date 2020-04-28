@@ -63,10 +63,10 @@ namespace GameNoGame
             return new Vector(a.X + b.X, a.Y + b.Y);
         }
 
-        //public Vector Normalize()
-        //{
-        //    return Length > 0 ? this * (1 / Length) : this;
-        //}
+        public Vector Normalize()
+        {
+            return Length > 0 ?  (int)(1 / Length)* this  : this;
+        }
 
         //public Vector Rotate(double angle)
         //{

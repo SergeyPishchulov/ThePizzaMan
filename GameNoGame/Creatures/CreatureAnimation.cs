@@ -15,8 +15,9 @@ namespace GameNoGame
 
         public int Flip;
         public int jumpCount;
-        public Vector MoveOffset=Vector.Zero;
-        public Vector JumpOffset=Vector.Zero;
+        public Vector MoveOffset = Vector.Zero;
+        public Vector HookFixation = Vector.Zero;
+        //public Vector JumpOffset=Vector.Zero;
 
         public int IdleFrames;
         public int RunFrames;
@@ -70,10 +71,8 @@ namespace GameNoGame
 
         public void PlayAnimation(Graphics g)
         {
-            var leftTop = new Point(Creature.LeftTopLocation.X + (1-Flip)/2* Creature.Size.Width, Creature.LeftTopLocation.Y);
-            //if (Flip == -1)
-            //    leftTop = new Point(Creature.LeftTopLocation.X + Creature.Size.Width, Creature.LeftTopLocation.Y);
-            g.DrawImage(Image, 
+            var leftTop = new Point(Creature.LeftTopLocation.X + (1 - Flip) / 2 * Creature.Size.Width, Creature.LeftTopLocation.Y);
+            g.DrawImage(Image,
                 new System.Drawing.Rectangle(
                     leftTop,
                     new Size(Flip * Creature.Size.Width, Creature.Size.Height)),

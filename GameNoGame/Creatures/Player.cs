@@ -10,7 +10,7 @@ namespace GameNoGame
         public int Health { get; }
 
         public Vector Velocity { get; set; } = Vector.Zero;
-        public int FlyingTime;
+        public Vector RopeVelocity = Vector.Zero;
 
         public CreatureState State;
 

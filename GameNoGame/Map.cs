@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 namespace GameNoGame
 {
     public class Map
-    {    
+    {
         public List<Rectangle> MapObjects { get; private set; }
 
         public Map(List<Rectangle> mapObjects)
@@ -20,12 +21,20 @@ namespace GameNoGame
         {
             var destination = new Rectangle(mover.LeftTopLocation + movement, mover.Size);
 
-            var res=MapObjects
+            var res = MapObjects
                 .Where(o => !(o is ICreature)) //умеет ходить только сквозь ICreature
                 .Select(r => Rectangle.AreIntersected(r, destination))
                 .All(i => i == false);
 
             return res;
-        }        
-    }    
+        }
+
+        public bool IsInPlatform(Vector point)
+        {
+            var destination = new Rectangle(point, new Size(1, 1));
+            return MapObjects
+                .Where(o => !(o is ICreature))
+                .Any(i => Rectangle.AreIntersected(i, destination));             
+        }
+    }
 }

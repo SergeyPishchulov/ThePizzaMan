@@ -35,26 +35,58 @@ namespace GameNoGame
             Stage = stage;
             StageChanged?.Invoke(stage); //Вызов события StageChanged
         }
-
-        public void OnTick(Vector MoveOffset, bool needJump)
+        
+        public void OnTick(Vector MoveOffset, bool needJump, Vector whereNeedPullTo)
         {
-            Move(Player, 10 * MoveOffset); //по X
-            if (needJump && StayOnGround(Player))
-                Jump(Player);
-            Player.Velocity += new Vector(0, 10);//gravity
-            Move(Player, Player.Velocity);
-            if (StayOnGround(Player)) Player.Velocity = new Vector(Player.Velocity.X, 0);
+            if (whereNeedPullTo != Vector.Zero)
+            {
+                if (Player.RopeVelocity == Vector.Zero)
+                {
+                    var c = 20;
+                    var movementOnRope = whereNeedPullTo - new Vector(Player.Size.Width/2, 0) - Player.LeftTopLocation;
+                    Player.RopeVelocity = new Vector(movementOnRope.X/c, movementOnRope.Y/c);
+                }
+                if (Player.RopeVelocity != Vector.Zero)
+                {
+                    Move(Player, Player.RopeVelocity);
+                    if (!Map.CanMove(Player, Player.RopeVelocity))
+                    {
+                        //whereNeedPullTo = Vector.Zero;
+                        Player.RopeVelocity = Vector.Zero;
+                    }
+                }
+            }
+            else
+            {
+                Player.RopeVelocity = Vector.Zero;
+                Move(Player, 30 * MoveOffset); //по X
+                if (needJump && StayOnGround(Player))
+                    Jump(Player);
+                Player.Velocity += new Vector(0, 10);//gravity
+                Move(Player, Player.Velocity);
+                if (StayOnGround(Player)) Player.Velocity = new Vector(Player.Velocity.X, 0);
+            }
         }
 
-        
-
+        private bool CanStrechRope(Vector hookFixation)
+        {
+            var partCount = 100;
+            var movement = hookFixation - new Vector(Player.Size.Width / 2, 0) - Player.LeftTopLocation;
+            var res = true;
+            for (var i = 0; i < partCount; i++)
+            {
+                res = res && Map.CanMove(Player, i * new Vector(movement.X / partCount, movement.Y / partCount));
+            }
+            return res;
+        }
+                     
         public void Move(ICreature mover, Vector movement)
         {
             if (Map.CanMove(mover, movement))
                 mover.LeftTopLocation += movement;
             else
             {
-                var part =new Vector(movement.X/10, movement.Y/10);
+                var part = new Vector(movement.X / 10, movement.Y / 10);
                 for (var i = 0; i < 10; i++)
                     Move(mover, part);
             }
@@ -64,7 +96,7 @@ namespace GameNoGame
 
         public void Jump(ICreature mover)
         {
-            Player.Velocity += new Vector(0, -70); 
+            Player.Velocity += new Vector(0, -70);
         }
 
         /* методы игрока: Walk, Run, Jump, ShotRope */

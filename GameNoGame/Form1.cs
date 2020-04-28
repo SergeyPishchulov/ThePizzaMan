@@ -17,6 +17,7 @@ namespace GameNoGame
         public CreatureAnimation animation;
         public Game game;
         public Vector gratity = new Vector(0, 10);
+        private bool Space;
 
         public Form1()
         {
@@ -27,6 +28,8 @@ namespace GameNoGame
 
             KeyDown += new KeyEventHandler(OnKeyDown);
             KeyUp += new KeyEventHandler(OnKeyUp);
+            MouseClick += new MouseEventHandler(OnClick);
+            
 
             Init();
         }
@@ -34,17 +37,27 @@ namespace GameNoGame
         public void OnKeyUp(object sender, KeyEventArgs e)
         {
             animation.MoveOffset = Vector.Zero;
-            animation.JumpOffset = Vector.Zero;
+            //animation.JumpOffset = Vector.Zero;
 
             animation.IsMoving = false;
             animation.IsJumping = false;
             animation.SetAnimation(0);
         }
 
+        public void OnClick(object sender, MouseEventArgs e)
+        {            
+            if (e.Button == MouseButtons.Left)
+            {
+                var hookFixation = new Vector(e.Location.X, e.Location.Y);
+                if (animation.HookFixation == Vector.Zero && game.Map.IsInPlatform(hookFixation))
+                    animation.HookFixation = hookFixation;
+                else
+                    animation.HookFixation = Vector.Zero;
+            }
+        }
+
         public void OnKeyDown(object sender, KeyEventArgs e)
         {
-
-
             if (e.KeyCode == Keys.A)
             {
                 animation.MoveOffset = new Vector(-1, 0);
@@ -63,7 +76,7 @@ namespace GameNoGame
 
             if (e.KeyCode == Keys.Space)
             {
-                animation.JumpOffset = new Vector(0, -30);
+                //animation.JumpOffset = new Vector(0, -30);
                 animation.IsJumping = true;
                 animation.SetAnimation(0);
             }
@@ -84,10 +97,10 @@ namespace GameNoGame
                 Frames.DeathFrames, creatureImage);
 
             game = new Game(new Map(new List<Rectangle>() {
-                new Rectangle(new Vector(150, 700), new Size(1500, 300)),
-                new Rectangle(new Vector(1600, 700), new Size(1000, 300)),
-                new Rectangle(new Vector(600, 400), new Size(220, 340)),
-                new Rectangle(new Vector(0, 400), new Size(220, 340)),
+                new Rectangle(new Vector(0, 700), new Size(1500, 300)),
+                new Rectangle(new Vector(700, 100), new Size(100, 100)),
+                new Rectangle(new Vector(0, 300), new Size(1500,20)),
+                new Rectangle(new Vector(200, 20), new Size(100,100)),
                 (Player)animation.Creature
             }), (Player)animation.Creature);
 
@@ -103,7 +116,7 @@ namespace GameNoGame
             //    game.Jump(animation.Creature, animation.JumpOffset);
 
             //game.Move(animation.Creature, gratity);
-            game.OnTick(animation.MoveOffset, animation.IsJumping);
+            game.OnTick(animation.MoveOffset, animation.IsJumping, animation.HookFixation);
             Invalidate();
             //animation.MoveOffset = Vector.Zero;
             //animation.JumpOffset = Vector.Zero;
