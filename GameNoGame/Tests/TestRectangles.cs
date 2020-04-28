@@ -10,7 +10,7 @@ namespace GameNoGame.Tests
 {
     [TestFixture]
     class TestRectangles
-    {        
+    {
         [Test]
         public void CreateRectangle()
         {
@@ -23,7 +23,7 @@ namespace GameNoGame.Tests
         {
             var r1 = new Rectangle(new Vector(0, 0), new Size(10, 10));
             var r2 = new Rectangle(new Vector(50, 50), new Size(10, 10));
-            var actual = Rectangle.AreIntersected(r1,r2);
+            var actual = Rectangle.AreIntersected(r1, r2);
             Assert.IsFalse(actual);
         }
         [Test]
@@ -39,7 +39,7 @@ namespace GameNoGame.Tests
         public void IntersectedRectanglesBy1Point()
         {
             var r1 = new Rectangle(new Vector(0, 0), new Size(10, 10));
-            var r2 = new Rectangle(new Vector(10, 10), new Size(10, 10));
+            var r2 = new Rectangle(new Vector(9, 9), new Size(10, 10));
             var actual = Rectangle.AreIntersected(r1, r2);
             Assert.IsTrue(actual);
         }
@@ -48,7 +48,7 @@ namespace GameNoGame.Tests
         public void IntersectedRectanglesByLine()
         {
             var r1 = new Rectangle(new Vector(0, 0), new Size(10, 10));
-            var r2 = new Rectangle(new Vector(10, 0), new Size(10, 10));
+            var r2 = new Rectangle(new Vector(9, 0), new Size(10, 10));
             var actual = Rectangle.AreIntersected(r1, r2);
             Assert.IsTrue(actual);
         }

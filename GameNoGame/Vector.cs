@@ -52,15 +52,6 @@ namespace GameNoGame
             return new Vector(a.X - b.X, a.Y - b.Y);
         }
 
-        //public static Vector operator *(Vector a, double k)
-        //{
-        //    return new Vector(a.X * k, a.Y * k);
-        //}
-
-        //public static Vector operator /(Vector a, double k)
-        //{
-        //    return new Vector(a.X / k, a.Y / k);
-        //}
 
         public static Vector operator *(int k, Vector a)
         {
@@ -72,10 +63,10 @@ namespace GameNoGame
             return new Vector(a.X + b.X, a.Y + b.Y);
         }
 
-        //public Vector Normalize()
-        //{
-        //    return Length > 0 ? this * (1 / Length) : this;
-        //}
+        public Vector Normalize()
+        {
+            return Length > 0 ?  (int)(1 / Length)* this  : this;
+        }
 
         //public Vector Rotate(double angle)
         //{

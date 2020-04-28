@@ -11,15 +11,18 @@ namespace GameNoGame
     {
         public bool IsMoving;
         public bool IsJumping;
+        public CreatureState State;
         public ICreature Creature;
 
         public int Flip;
         public int jumpCount;
-        public Vector offset;
+        public Vector MoveOffset = Vector.Zero;
+        public Vector HookFixation = Vector.Zero;
+        //public Vector JumpOffset=Vector.Zero;
 
         public int IdleFrames;
         public int RunFrames;
-        public int AttackFrames;
+        public int JumpFrames;
         public int DeathFrames;
 
         public int CurrentFrame;
@@ -28,13 +31,13 @@ namespace GameNoGame
 
         public Image Image;
 
-        public CreatureAnimation(ICreature creature, int idle, int run, int attack, int death, Image image)
+        public CreatureAnimation(ICreature creature, int idle, int run, int jump, int death, Image image)
         {
             Creature = creature;
 
             IdleFrames = idle;
             RunFrames = run;
-            AttackFrames = attack;
+            JumpFrames = jump;
             DeathFrames = death;
 
             Image = image;
@@ -59,7 +62,7 @@ namespace GameNoGame
                     CurrentLimit = RunFrames;
                     break;
                 case 2:
-                    CurrentLimit = AttackFrames;
+                    CurrentLimit = JumpFrames;
                     break;
                 case 3:
                     CurrentLimit = DeathFrames;
@@ -69,9 +72,13 @@ namespace GameNoGame
 
         public void PlayAnimation(Graphics g)
         {
-            g.DrawImage(Image, 
+            var playerPoint = new Point(
+                Creature.LeftTopLocation.X + (1 - Flip) / 2 * Creature.Size.Width,
+                Creature.LeftTopLocation.Y);
+
+            g.DrawImage(Image,
                 new System.Drawing.Rectangle(
-                    new Point(Creature.Location.X - Flip * Creature.Size.Width / 2, Creature.Location.Y - Creature.Size.Height / 2),
+                    playerPoint,
                     new Size(Flip * Creature.Size.Width, Creature.Size.Height)),
                     128 * CurrentFrame, 128 * CurrentAnimation, Creature.Size.Width, Creature.Size.Height,
                     GraphicsUnit.Pixel);

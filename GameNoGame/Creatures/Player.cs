@@ -5,23 +5,21 @@ namespace GameNoGame
 {
     public class Player : Rectangle, ICreature
     {
-        //public Vector Location { get; set; }
-        //public Size Size { get; set; }
         public int Health { get; }
+
+        public Vector Velocity { get; set; } = Vector.Zero;
+        public Vector RopeVelocity = Vector.Zero;
 
         public CreatureState State;
 
         public Player(Vector location, Size size) : base(location, size)
         {
-            Location = location;
+            LeftTopLocation = location;
             Health = 100;
             Size = size;
             State = 0;
-        }        
-
-        public bool IsAlive()
-        {
-            return Health > 0;
         }
+
+        public bool IsAlive() => Health > 0;
     }
 }

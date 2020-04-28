@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Map\InitMap.cs" />
     <Compile Include="Rectangle.cs" />
     <Compile Include="Creatures\CreatureAnimation.cs" />
     <Compile Include="Creatures\CreatureState.cs" />
@@ -66,8 +67,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="GameStage.cs" />
     <Compile Include="Creatures\ICreature.cs" />
-    <Compile Include="IMapObject.cs" />
-    <Compile Include="Map.cs" />
+    <Compile Include="Map\Map.cs" />
     <Compile Include="Creatures\Monster.cs" />
     <Compile Include="Creatures\Player.cs" />
     <Compile Include="Program.cs" />

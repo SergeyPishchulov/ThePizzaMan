@@ -9,9 +9,10 @@ namespace GameNoGame
 {
     public interface ICreature 
     {
-        Vector Location { get; set; }
+        Vector LeftTopLocation { get; set; }
         Size Size { get; }
         int Health { get; }
+        Vector Velocity { get; set; }
 
         //void Move(Vector movement);
 

@@ -7,19 +7,36 @@ using System.Threading.Tasks;
 
 namespace GameNoGame
 {
-    public class Rectangle 
+    public class Rectangle
     {
-        public Vector Location { get; set; }
+        //public Vector Location {
+        //    get
+        //    {
+        //        return Location;
+        //    }
+        //    set
+        //    {
+        //        Location=value;
+        //    }
+        //}
         public Size Size { get; set; }
 
         public Vector LeftTopLocation { get; set; }
 
-        public Rectangle(Vector location, Size size)
+        public Rectangle(Vector leftTopLocation, Size size)
         {
-            Location = location;
-            LeftTopLocation = new Vector(location.X - size.Width / 2,
-                                         location.Y - size.Height / 2);
+            //Location = location;
+            LeftTopLocation = leftTopLocation;
             Size = size;
+        }
+
+        public System.Drawing.Rectangle Cast()
+        {
+            return new System.Drawing.Rectangle(
+                LeftTopLocation.X,
+                LeftTopLocation.Y,
+                Size.Width,
+                Size.Height);
         }
 
         public static bool AreIntersected(Rectangle r1, Rectangle r2)
@@ -35,12 +52,12 @@ namespace GameNoGame
 
         public static (int, int) GetXBorders(Rectangle r)
         {
-            return (r.Location.X - r.Size.Width / 2, r.Location.X + r.Size.Width / 2);
+            return (r.LeftTopLocation.X, r.LeftTopLocation.X + r.Size.Width - 1);
         }
 
         public static (int, int) GetYBorders(Rectangle r)
         {
-            return (r.Location.Y - r.Size.Height / 2, r.Location.Y + r.Size.Height / 2);
+            return (r.LeftTopLocation.Y, r.LeftTopLocation.Y + r.Size.Height - 1);
         }
 
         static bool ProjectionIntersect(int minA, int maxA, int minB, int maxB)

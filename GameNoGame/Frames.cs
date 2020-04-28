@@ -9,8 +9,8 @@ namespace GameNoGame
     class Frames
     {
         public static int IdleFrames = 9;
-        public static int RunFrames = 0;
-        public static int AttackFrames = 0;
-        public static int DeathFrames = 0;
+        public static int RunFrames = 9;
+        public static int JumpFrames = 9;
+        public static int DeathFrames = 3;
     }
 }
