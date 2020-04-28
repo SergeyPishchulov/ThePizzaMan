@@ -128,8 +128,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Sprites\City.png" />
+    <Content Include="Sprites\Monster.png" />
+    <Content Include="Sprites\Monster1.png" />
+    <Content Include="Sprites\OneBuilding.png" />
     <Content Include="Sprites\Pizza.png" />
     <Content Include="Sprites\Pizza1.png" />
+    <Content Include="Sprites\Platform.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
