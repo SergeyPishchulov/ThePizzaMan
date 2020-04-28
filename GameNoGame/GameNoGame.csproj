@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InitMap.cs" />
     <Compile Include="Rectangle.cs" />
     <Compile Include="Creatures\CreatureAnimation.cs" />
     <Compile Include="Creatures\CreatureState.cs" />

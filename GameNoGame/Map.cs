@@ -7,15 +7,19 @@ using System.Threading.Tasks;
 
 namespace GameNoGame
 {
-    public class Map
+    public partial class Map
     {
-        public List<Rectangle> MapObjects { get; private set; }
+        public List<Rectangle> MapObjects { get; private set; }        
+
+        public Map(int levelNumber, Player player) 
+        {
+            MapObjects = InitMap(levelNumber, player);
+        }
 
         public Map(List<Rectangle> mapObjects)
         {
             MapObjects = mapObjects;
         }
-
 
         public bool CanMove(ICreature mover, Vector movement)
         {

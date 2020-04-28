@@ -23,19 +23,6 @@ namespace GameNoGame
             return Vector.Zero;
         }
 
-        public void Move(Vector movement)
-        {
-            /* исходя от нахождения игрока */
-        }
-
-        public bool CanMove(Vector location)
-        {
-            return true;
-        }
-
-        public bool IsAlive()
-        {
-            return Health > 0;
-        }
+        public bool IsAlive() => Health > 0;
     }
 }

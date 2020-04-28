@@ -17,7 +17,7 @@ namespace GameNoGame
         public CreatureAnimation animation;
         public Game game;
         public Vector gratity = new Vector(0, 10);
-        private bool Space;
+        public List<System.Drawing.Rectangle> FormObjects { get; private set; }
 
         public Form1()
         {
@@ -96,13 +96,7 @@ namespace GameNoGame
                 Frames.AttackFrames,
                 Frames.DeathFrames, creatureImage);
 
-            game = new Game(new Map(new List<Rectangle>() {
-                new Rectangle(new Vector(0, 700), new Size(1500, 300)),
-                new Rectangle(new Vector(700, 100), new Size(100, 100)),
-                new Rectangle(new Vector(0, 300), new Size(1500,20)),
-                new Rectangle(new Vector(200, 20), new Size(100,100)),
-                (Player)animation.Creature
-            }), (Player)animation.Creature);
+            game = new Game(new Map(0, (Player)animation.Creature), (Player)animation.Creature);
 
             timer1.Start();
         }
@@ -125,6 +119,7 @@ namespace GameNoGame
 
         private void OnPaint(object sender, PaintEventArgs e)
         {
+
             var rectangle1 = new System.Drawing.Rectangle(
                 game.Map.MapObjects[0].LeftTopLocation.X,
                 game.Map.MapObjects[0].LeftTopLocation.Y,
