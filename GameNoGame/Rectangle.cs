@@ -9,16 +9,6 @@ namespace GameNoGame
 {
     public class Rectangle
     {
-        //public Vector Location {
-        //    get
-        //    {
-        //        return Location;
-        //    }
-        //    set
-        //    {
-        //        Location=value;
-        //    }
-        //}
         public Size Size { get; set; }
 
         public Vector LeftTopLocation { get; set; }

@@ -39,6 +39,7 @@ namespace GameNoGame
         public void OnTick(Vector MoveOffset, bool needJump, Vector hookFixation)
         {
             if (hookFixation != Vector.Zero)
+
             {
                 if (Player.RopeVelocity == Vector.Zero)
                 {
@@ -46,6 +47,7 @@ namespace GameNoGame
                     var movementOnRope = 
                         hookFixation - new Vector(Player.Size.Width / 2, 0) - Player.LeftTopLocation;
                     Player.RopeVelocity = new Vector(movementOnRope.X / c, movementOnRope.Y / c);
+
                 }
                 if (Player.RopeVelocity != Vector.Zero)
                 {
@@ -65,12 +67,12 @@ namespace GameNoGame
                 if (needJump && StayOnGround(Player))
                     Jump(Player);
                 Player.Velocity += new Vector(0, 10);//gravity
-
                 Move(Player, Player.Velocity);
                 if (StayOnGround(Player)) Player.Velocity = new Vector(Player.Velocity.X, 0);
                 if (HitTheRoof(Player)) Player.Velocity = new Vector(Player.Velocity.X, 10);
             }
         }
+
 
         public void Move(ICreature mover, Vector movement)
         {
@@ -102,6 +104,7 @@ namespace GameNoGame
 
         public bool StayOnGround(ICreature mover) => !Map.CanMove(mover, new Vector(0, 10));
         public bool HitTheRoof(ICreature mover) => !Map.CanMove(mover, new Vector(0, -1));
+
         public void Jump(ICreature mover)
         {
             Player.Velocity += new Vector(0, -70);

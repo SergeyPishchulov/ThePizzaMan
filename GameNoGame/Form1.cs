@@ -34,7 +34,6 @@ namespace GameNoGame
             KeyDown += new KeyEventHandler(OnKeyDown);
             KeyUp += new KeyEventHandler(OnKeyUp);
             MouseClick += new MouseEventHandler(OnClick);
-            
             Init();
         }
 
@@ -66,7 +65,7 @@ namespace GameNoGame
 
         public void OnKeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
+            switch(e.KeyCode)
             {
                 case Keys.R:
                     Init();
@@ -92,6 +91,7 @@ namespace GameNoGame
                     break;
             }
         }
+
 
         public void Init()
         {
@@ -128,7 +128,10 @@ namespace GameNoGame
                         playerAnimation.HookFixation);
 
             game.Move(monsterAnimation.Creature, gratity);
+
             Invalidate();
+            //animation.MoveOffset = Vector.Zero;
+            //animation.JumpOffset = Vector.Zero;
         }
 
         private void OnPaint(object sender, PaintEventArgs e)
