@@ -15,10 +15,8 @@ namespace GameNoGame
         public ICreature Creature;
 
         public int Flip;
-        public int jumpCount;
         public Vector MoveOffset = Vector.Zero;
-        public Vector HookFixation = Vector.Zero;
-        //public Vector JumpOffset=Vector.Zero;
+        
 
         public int IdleFrames;
         public int RunFrames;

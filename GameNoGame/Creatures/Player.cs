@@ -7,8 +7,9 @@ namespace GameNoGame
     {
         public int Health { get; }
 
-        public Vector Velocity { get; set; } = Vector.Zero;
-        public Vector RopeVelocity = Vector.Zero;
+        public Vector Velocity { get; set; }
+        public Vector RopeVelocity;
+        public Vector HookFixation;
 
         public CreatureState State;
 
@@ -18,6 +19,9 @@ namespace GameNoGame
             Health = 100;
             Size = size;
             State = 0;
+            RopeVelocity = Vector.Zero;
+            HookFixation = Vector.Zero;
+            Velocity = Vector.Zero;
         }
 
         public bool IsAlive() => Health > 0;

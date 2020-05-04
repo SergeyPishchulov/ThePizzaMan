@@ -56,13 +56,14 @@ namespace GameNoGame.Tests
         public void PlayerFallsAfterStepFromPlatform()
         {
             var player = new Player(new Vector(0, 572), new Size(128, 128));
+            var monster = new Monster(new Vector(10, 10), new Size(10, 10));
             var map = new Map(new List<Rectangle>
             {
                 new Rectangle(new Vector(0, 700), new Size(128, 128)),
                 new Rectangle(new Vector(0, 828), new Size(1000, 128)),
                 player
             });
-            var game = new Game(map, player);
+            var game = new Game(map, player, monster);
             var needJump = false;
             game.OnTick(new Vector(5, 0), needJump, Vector.Zero);
 
@@ -77,12 +78,13 @@ namespace GameNoGame.Tests
         public void PlayerInTheSameLocationAfterJump()
         {
             var player = new Player(new Vector(0, 572), new Size(128, 128));
+            var monster = new Monster(new Vector(10, 10), new Size(10, 10));
             var map = new Map(new List<Rectangle>
             {
                 new Rectangle(new Vector(0, 700), new Size(1500, 300)),
                 player
             });
-            var game = new Game(map, player);
+            var game = new Game(map, player, monster);
             var needJump = true;
             game.OnTick(Vector.Zero, needJump, Vector.Zero);
             for (var i = 1; i <= 12; i++)
@@ -96,12 +98,13 @@ namespace GameNoGame.Tests
         public void PLayerFallsFromLessThanHalfHisHeight()
         {
             var player = new Player(new Vector(0, 566), new Size(128, 128));
+            var monster = new Monster(new Vector(10, 10), new Size(10, 10));
             var map = new Map(new List<Rectangle>
             {
                 new Rectangle(new Vector(0, 700), new Size(1500, 300)),
                 player
             });
-            var game = new Game(map, player);
+            var game = new Game(map, player, monster);
             game.OnTick(Vector.Zero, false, Vector.Zero);
             var expectedLocation = new Vector(0, 572);
 
@@ -112,12 +115,13 @@ namespace GameNoGame.Tests
         public void PLayerFalls2Ticks()
         {
             var player = new Player(new Vector(0, 555), new Size(128, 128));
+            var monster = new Monster(new Vector(10, 10), new Size(10, 10));
             var map = new Map(new List<Rectangle>
             {
                 new Rectangle(new Vector(0, 700), new Size(1500, 300)),
                 player
             });
-            var game = new Game(map, player);
+            var game = new Game(map, player, monster);
             game.OnTick(Vector.Zero, false, Vector.Zero);//за 1 тик смещение должно быть 10 пикселей
             game.OnTick(Vector.Zero, false, Vector.Zero);
             var expectedLocation = new Vector(0, 572);
@@ -129,12 +133,13 @@ namespace GameNoGame.Tests
         public void PLayerFallsFrom4HisHeight()
         {
             var player = new Player(new Vector(0, 0), new Size(128, 128));
+            var monster = new Monster(new Vector(10, 10), new Size(10, 10));
             var map = new Map(new List<Rectangle>
             {
                 new Rectangle(new Vector(0, 700), new Size(1500, 300)),
                 player
             });
-            var game = new Game(map, player);
+            var game = new Game(map, player, monster);
             for (var i = 1; i <= 58; i++)
                 game.OnTick(Vector.Zero, false, Vector.Zero);
             var expectedLocation = new Vector(0, 572);

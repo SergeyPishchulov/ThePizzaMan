@@ -83,4 +83,3 @@ C:\Users\kryaz\OneDrive\Документы\GitHub\Game\GameNoGame\obj\Debug\Game
 C:\Users\kryaz\OneDrive\Документы\GitHub\Game\GameNoGame\obj\Debug\GameNoGame.csproj.CopyComplete
 C:\Users\kryaz\OneDrive\Документы\GitHub\Game\GameNoGame\obj\Debug\GameNoGame.exe
 C:\Users\kryaz\OneDrive\Документы\GitHub\Game\GameNoGame\obj\Debug\GameNoGame.pdb
-
