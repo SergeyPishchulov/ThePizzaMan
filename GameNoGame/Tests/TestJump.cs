@@ -52,61 +52,64 @@ namespace GameNoGame.Tests
         //    Assert.AreEqual(expectedLocation, player.LeftTopLocation);
         //}
 
+        public Game MakeGame()
+        {
+            var player = new Player(new Vector(0, 90), new Size(10, 10));
+            var monster = new Monster(new Vector(10, -600), new Size(10, 10));
+            var map = new Map(new List<Rectangle>
+            {
+                new Rectangle(new Vector(0, 100), new Size(100, 100)),
+                player
+            });
+            return new Game(map, player, monster);
+        }
+
         [Test]
         public void PlayerFallsAfterStepFromPlatform()
         {
-            var player = new Player(new Vector(0, 572), new Size(128, 128));
-            var monster = new Monster(new Vector(10, 10), new Size(10, 10));
+            var player = new Player(new Vector(0, 90), new Size(10, 10));
+            var monster = new Monster(new Vector(10, -600), new Size(10, 10));
             var map = new Map(new List<Rectangle>
             {
-                new Rectangle(new Vector(0, 700), new Size(128, 128)),
-                new Rectangle(new Vector(0, 828), new Size(1000, 128)),
+                new Rectangle(new Vector(0, 100), new Size(10,10)),
+                new Rectangle(new Vector(0, 110), new Size(100,10)),
                 player
             });
             var game = new Game(map, player, monster);
-            var needJump = false;
-            game.OnTick(new Vector(5, 0), needJump, Vector.Zero);
+            game.OnTick(new Vector(1, 0), false, Vector.Zero);
 
-            for (var i = 1; i <= 12; i++)
-                game.OnTick(Vector.Zero, needJump, Vector.Zero);
-            var expectedLocation = new Vector(150, 700);
+            for (var i = 1; i <= 9; i++)
+                game.OnTick(Vector.Zero, false, Vector.Zero);
+            var expectedLocation = new Vector(30,100);
 
-            Assert.AreEqual(expectedLocation, player.LeftTopLocation);
+            Assert.AreEqual(expectedLocation, game.Player.LeftTopLocation);
         }
 
         [Test]
         public void PlayerInTheSameLocationAfterJump()
         {
-            var player = new Player(new Vector(0, 572), new Size(128, 128));
-            var monster = new Monster(new Vector(10, 10), new Size(10, 10));
-            var map = new Map(new List<Rectangle>
-            {
-                new Rectangle(new Vector(0, 700), new Size(1500, 300)),
-                player
-            });
-            var game = new Game(map, player, monster);
+            var game = MakeGame();
             var needJump = true;
             game.OnTick(Vector.Zero, needJump, Vector.Zero);
             for (var i = 1; i <= 12; i++)
                 game.OnTick(Vector.Zero, false, Vector.Zero);
-            var expectedLocation = new Vector(0, 572);
-
-            Assert.AreEqual(expectedLocation, player.LeftTopLocation);
+            var expectedLocation = new Vector(0, 90);
+            Assert.AreEqual(expectedLocation, game.Player.LeftTopLocation);
         }
 
         [Test]
         public void PLayerFallsFromLessThanHalfHisHeight()
         {
-            var player = new Player(new Vector(0, 566), new Size(128, 128));
-            var monster = new Monster(new Vector(10, 10), new Size(10, 10));
+            var player = new Player(new Vector(0, 180), new Size(10,10));
+            var monster = new Monster(new Vector(0, -600), new Size(10, 10));
             var map = new Map(new List<Rectangle>
             {
-                new Rectangle(new Vector(0, 700), new Size(1500, 300)),
+                new Rectangle(new Vector(0, 100), new Size(1500, 15)),
                 player
             });
             var game = new Game(map, player, monster);
-            game.OnTick(Vector.Zero, false, Vector.Zero);
-            var expectedLocation = new Vector(0, 572);
+            game.OnTick(Vector.Zero, false, Vector.Zero);            
+            var expectedLocation = new Vector(0, 190);
 
             Assert.AreEqual(expectedLocation, player.LeftTopLocation);
         }

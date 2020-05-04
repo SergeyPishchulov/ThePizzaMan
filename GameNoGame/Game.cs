@@ -40,7 +40,7 @@ namespace GameNoGame
         }
 
         public void OnTick(Vector moveOffset, bool isNeedJump, Vector hookFixation)
-        {
+        {            
             if (hookFixation != Vector.Zero)
                 MoveInRope(hookFixation);
             else
@@ -75,8 +75,9 @@ namespace GameNoGame
             Move(Player, 30 * moveOffset); //по X
             if (isNeedJump && StayOnGround(Player))
                 Jump(Player);
+            Gravity();
             Move(Player, Player.Velocity);
-            Move(Monster, Monster.Velocity);
+            Move(Monster, Monster.Velocity);            
             if (StayOnGround(Player)) Player.Velocity = new Vector(Player.Velocity.X, 0);
             if (HitTheRoof(Player)) Player.Velocity = new Vector(Player.Velocity.X, 10);
         }
@@ -120,7 +121,7 @@ namespace GameNoGame
 
         private void Jump(ICreature mover)
         {
-            Player.Velocity += new Vector(0, -70);
+            mover.Velocity += new Vector(0, -70);
         }
 
         /* методы игрока: Walk, Run, Jump, ShotRope */

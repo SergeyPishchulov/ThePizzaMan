@@ -127,7 +127,7 @@ namespace GameNoGame
         private void Update(object sender, EventArgs e)
         {
             game.OnTick(playerAnimation.MoveOffset, playerAnimation.IsJumping, player.HookFixation);
-            game.Gravity();
+            
 
             Invalidate();
         }
