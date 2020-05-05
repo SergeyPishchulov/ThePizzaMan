@@ -17,7 +17,7 @@ namespace GameNoGame
         public Map Map;
         public int Scores;
         public Vector GravityForce = new Vector(0, 10);
-        public GameStage Stage { get; private set; } = GameStage.NotStarted;
+        public GameStage Stage { get; set; } = GameStage.NotStarted;
         public event Action<GameStage> StageChanged;
 
         public Game(Map map, Player player, Monster monster)
@@ -27,10 +27,36 @@ namespace GameNoGame
             Monster = monster;
         }
 
+        public Game()
+        {
+            Player = new Player(new Vector(10, 10), new Size(128, 128));
+            Monster = new Monster(new Vector(100, 100), new Size(128, 128));
+            Map = new Map(new List<Rectangle>() { Player, Monster });
+        }
+
         public void Start()
         {
-            // каким-то образом создание карты
             ChangeStage(GameStage.Setup);
+        }
+
+        public void ChooseMap()
+        {
+            ChangeStage(GameStage.MapChoosing);
+        }
+
+        public void Exit()
+        {
+            ChangeStage(GameStage.Finished);
+        }
+
+        public void GoToStartScreen()
+        {
+            ChangeStage(GameStage.NotStarted);
+        }
+
+        public void CloseForm()
+        {
+            Application.Exit();
         }
 
         private void ChangeStage(GameStage stage)
@@ -40,7 +66,7 @@ namespace GameNoGame
         }
 
         public void OnTick(Vector moveOffset, bool isNeedJump, Vector hookFixation)
-        {
+        {            
             if (hookFixation != Vector.Zero)
                 MoveInRope(hookFixation);
             else
@@ -75,8 +101,9 @@ namespace GameNoGame
             Move(Player, 30 * moveOffset); //по X
             if (isNeedJump && StayOnGround(Player))
                 Jump(Player);
+            Gravity();
             Move(Player, Player.Velocity);
-            Move(Monster, Monster.Velocity);
+            Move(Monster, Monster.Velocity);            
             if (StayOnGround(Player)) Player.Velocity = new Vector(Player.Velocity.X, 0);
             if (HitTheRoof(Player)) Player.Velocity = new Vector(Player.Velocity.X, 10);
         }
@@ -120,7 +147,7 @@ namespace GameNoGame
 
         private void Jump(ICreature mover)
         {
-            Player.Velocity += new Vector(0, -70);
+            mover.Velocity += new Vector(0, -70);
         }
 
         /* методы игрока: Walk, Run, Jump, ShotRope */

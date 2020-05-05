@@ -10,7 +10,8 @@ namespace GameNoGame
     {
         NotStarted = 0,
         Setup = 1,
-        Level = 2,
-        Finished = 3
+        MapChoosing = 2,
+        Level = 3,
+        Finished = 4
     }
 }
