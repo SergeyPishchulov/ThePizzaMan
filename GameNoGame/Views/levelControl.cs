@@ -123,7 +123,6 @@ namespace GameNoGame
         {
             game.OnTick(playerAnimation.MoveOffset, playerAnimation.IsJumping, player.HookFixation);
 
-
             Invalidate();
         }
 
