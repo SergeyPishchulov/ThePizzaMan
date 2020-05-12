@@ -93,7 +93,7 @@
             this.Back.Location = new System.Drawing.Point(15, 15);
             this.Back.Margin = new System.Windows.Forms.Padding(0);
             this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(100, 100);
+            this.Back.Size = new System.Drawing.Size(109, 109);
             this.Back.TabIndex = 4;
             this.Back.UseVisualStyleBackColor = false;
             this.Back.Click += new System.EventHandler(this.Back_Click);

@@ -39,7 +39,7 @@
             this.startButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.startButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(0)))), ((int)(((byte)(63)))));
             this.startButton.Location = new System.Drawing.Point(467, 466);
-            this.startButton.Margin = new System.Windows.Forms.Padding(2);
+            this.startButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(500, 100);
             this.startButton.TabIndex = 0;
@@ -70,7 +70,7 @@
             this.Controls.Add(this.startButton);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "StartControl";
             this.Size = new System.Drawing.Size(1440, 1024);
             this.ResumeLayout(false);

@@ -61,64 +61,26 @@ namespace GameNoGame
             switch (levelNumber)
             {
                 case 0:
-                    g.DrawImage(new Bitmap(Path.Combine(new DirectoryInfo(
-                            Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(),
-                            "Sprites\\Platform.png")), MapObjects[0].Cast());
-
-                    g.DrawImage(new Bitmap(Path.Combine(new DirectoryInfo(
-                            Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(),
-                            "Sprites\\Platform.png")), MapObjects[1].Cast());
-
-                    g.DrawImage(new Bitmap(Path.Combine(new DirectoryInfo(
-                            Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(),
-                            "Sprites\\Platform.png")), MapObjects[2].Cast());
-
-                    g.DrawImage(new Bitmap(Path.Combine(new DirectoryInfo(
-                            Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(),
-                            "Sprites\\OneBuilding.png")), MapObjects[3].Cast());
+                    g.DrawImage(Properties.Resources.Platform, MapObjects[0].Cast());
+                    g.DrawImage(Properties.Resources.Platform, MapObjects[1].Cast());
+                    g.DrawImage(Properties.Resources.Platform, MapObjects[2].Cast());
+                    g.DrawImage(Properties.Resources.OneBuilding, MapObjects[3].Cast());
                     break;
-
 
                 case 1:
-                    g.DrawImage(new Bitmap(Path.Combine(new DirectoryInfo(
-                            Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(),
-                            "Sprites\\Platform.png")), MapObjects[0].Cast());
-
-                    g.DrawImage(new Bitmap(Path.Combine(new DirectoryInfo(
-                            Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(),
-                            "Sprites\\Platform.png")), MapObjects[1].Cast());
-
-                    g.DrawImage(new Bitmap(Path.Combine(new DirectoryInfo(
-                            Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(),
-                            "Sprites\\Platform.png")), MapObjects[2].Cast());
-
-                    g.DrawImage(new Bitmap(Path.Combine(new DirectoryInfo(
-                            Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(),
-                            "Sprites\\Platform.png")), MapObjects[3].Cast());
-
-                    g.DrawImage(new Bitmap(Path.Combine(new DirectoryInfo(
-                           Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(),
-                           "Sprites\\OneBuilding.png")), MapObjects[4].Cast());
-
-                    g.DrawImage(new Bitmap(Path.Combine(new DirectoryInfo(
-                           Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(),
-                           "Sprites\\Platform.png")), MapObjects[5].Cast());
+                    g.DrawImage(Properties.Resources.Platform, MapObjects[0].Cast());
+                    g.DrawImage(Properties.Resources.Platform, MapObjects[1].Cast());
+                    g.DrawImage(Properties.Resources.Platform, MapObjects[2].Cast());
+                    g.DrawImage(Properties.Resources.Platform, MapObjects[3].Cast());
+                    g.DrawImage(Properties.Resources.OneBuilding, MapObjects[4].Cast());
+                    g.DrawImage(Properties.Resources.Platform, MapObjects[5].Cast());
 
                     break;
 
-
                 case 2:
-                    g.DrawImage(new Bitmap(Path.Combine(new DirectoryInfo(
-                            Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(),
-                            "Sprites\\Platform.png")), MapObjects[0].Cast());
-
-                    g.DrawImage(new Bitmap(Path.Combine(new DirectoryInfo(
-                            Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(),
-                            "Sprites\\Platform.png")), MapObjects[1].Cast());
-
-                    g.DrawImage(new Bitmap(Path.Combine(new DirectoryInfo(
-                            Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(),
-                            "Sprites\\Platform.png")), MapObjects[2].Cast());
+                    g.DrawImage(Properties.Resources.Platform, MapObjects[0].Cast());
+                    g.DrawImage(Properties.Resources.Platform, MapObjects[1].Cast());
+                    g.DrawImage(Properties.Resources.Platform, MapObjects[2].Cast());
                     break;
 
             }

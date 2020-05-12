@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
+﻿
 namespace GameNoGame
 {
     public class Game
@@ -17,52 +8,12 @@ namespace GameNoGame
         public Map Map;
         public int Scores;
         public Vector GravityForce = new Vector(0, 10);
-        public GameStage Stage { get; set; } = GameStage.NotStarted;
-        public event Action<GameStage> StageChanged;
 
         public Game(Map map, Player player, Monster monster)
         {
             Map = map;
             Player = player;
             Monster = monster;
-        }
-
-        public Game()
-        {
-            Player = new Player(new Vector(10, 10), new Size(128, 128));
-            Monster = new Monster(new Vector(100, 100), new Size(128, 128));
-            Map = new Map(new List<Rectangle>() { Player, Monster });
-        }
-
-        public void Start()
-        {
-            ChangeStage(GameStage.Setup);
-        }
-
-        public void ChooseMap()
-        {
-            ChangeStage(GameStage.MapChoosing);
-        }
-
-        public void Exit()
-        {
-            ChangeStage(GameStage.Finished);
-        }
-
-        public void GoToStartScreen()
-        {
-            ChangeStage(GameStage.NotStarted);
-        }
-
-        public void CloseForm()
-        {
-            Application.Exit();
-        }
-
-        private void ChangeStage(GameStage stage)
-        {
-            Stage = stage;
-            StageChanged?.Invoke(stage); //Вызов события StageChanged
         }
 
         public void OnTick(Vector moveOffset, bool isNeedJump, Vector hookFixation)
@@ -119,11 +70,7 @@ namespace GameNoGame
             if (Map.CanMove(mover, movement))
                 mover.LeftTopLocation += movement;
             else
-            {
-                var part = new Vector(movement.X / 10, movement.Y / 10);
-                for (var i = 0; i < 10; i++)
-                    Move(mover, part);
-            }
+                MoveMuchCloseAsCan(mover, movement);
         }
 
         private void MoveMuchCloseAsCan(ICreature mover, Vector movement)

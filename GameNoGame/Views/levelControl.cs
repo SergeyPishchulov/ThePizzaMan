@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 
 namespace GameNoGame
 {
     public partial class LevelControl : UserControl
     {
+        public InterfaceManager interfaceManager;
+
         public Image playerImage;
         public CreatureAnimation playerAnimation;
         public Player player;
@@ -23,21 +24,22 @@ namespace GameNoGame
         {
             InitializeComponent();
 
-            timer1.Interval = 10;
-            timer1.Tick += new EventHandler(Update);
+            timer.Interval = 10;
+            timer.Tick += new EventHandler(Update);
 
             KeyDown += new KeyEventHandler(OnKeyDown);
             KeyUp += new KeyEventHandler(OnKeyUp);
             MouseClick += new MouseEventHandler(OnClick);
             Init();
+
         }
 
-        public void Configure(Game game)
+        public void Configure(InterfaceManager interfaceManager)
         {
-            if (this.game != null)
+            if (this.interfaceManager != null)
                 return;
 
-            this.game = game;
+            this.interfaceManager = interfaceManager;
         }
 
         public void OnKeyUp(object sender, KeyEventArgs e)
@@ -97,8 +99,8 @@ namespace GameNoGame
 
         public void Init()
         {
-            playerImage = Image.FromFile(Path.Combine(new DirectoryInfo(Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(), "Sprites\\Pizza1.png"));
-            monsterImage = Image.FromFile(Path.Combine(new DirectoryInfo(Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(), "Sprites\\Monster1.png"));
+            playerImage = Properties.Resources.Pizza1;
+            monsterImage = Properties.Resources.Monster1;
 
             playerAnimation = new CreatureAnimation(
                 new Player(new Vector(250, 480), new Size(128, 128)),
@@ -116,7 +118,7 @@ namespace GameNoGame
             levelNumber = 2;
             game = new Game(new Map(levelNumber, player, monster), player, monster);
 
-            timer1.Start();
+            timer.Start();
         }
 
         private void Update(object sender, EventArgs e)

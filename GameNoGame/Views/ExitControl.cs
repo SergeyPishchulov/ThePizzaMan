@@ -12,19 +12,19 @@ namespace GameNoGame
 {
     public partial class ExitControl : UserControl
     {
-        public Game game;
+        public InterfaceManager interfaceManager;
 
         public ExitControl()
         {
             InitializeComponent();
         }
 
-        public void Configure(Game game)
+        public void Configure(InterfaceManager interfaceManager)
         {
-            if (this.game != null)
+            if (this.interfaceManager != null)
                 return;
 
-            this.game = game;
+            this.interfaceManager = interfaceManager;
 
             YESButton.Click += YESButton_Click;
             NOButton.Click += NOButton_Click;
@@ -32,12 +32,12 @@ namespace GameNoGame
 
         private void YESButton_Click(object sender, EventArgs e)
         {
-            game.CloseForm();
+            interfaceManager.CloseForm();
         }
 
         private void NOButton_Click(object sender, EventArgs e)
         {
-            game.GoToStartScreen();
+            interfaceManager.GoToStartScreen();
         }
     }
 }

@@ -1,42 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GameNoGame
 {
     public partial class MapChoosingControl : UserControl
     {
-        public Game game;
+        public InterfaceManager interfaceManager;
 
         public MapChoosingControl()
         {
             InitializeComponent();
         }
 
-        public void Configure(Game game)
+        public void Configure(InterfaceManager interfaceManager)
         {
-            if (this.game != null)
+            if (this.interfaceManager != null)
                 return;
 
-            this.game = game;
+            this.interfaceManager = interfaceManager;
 
             Back.Click += Back_Click;
         }
 
         private void Back_Click(object sender, EventArgs e)
         {
-            game.GoToStartScreen();
+            interfaceManager.GoToStartScreen();
         }
 
         private void Map1_Click(object sender, EventArgs e)
         {
-
+            interfaceManager.LaunchFirstMap();
         }
 
         private void Map2_Click(object sender, EventArgs e)

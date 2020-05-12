@@ -1,30 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GameNoGame
 {
     public partial class StartControl : UserControl
     {
-        public Game game;
+        public InterfaceManager interfaceManager;
 
         public StartControl()
         {
             InitializeComponent();
         }
 
-        public void Configure(Game game)
+        public void Configure(InterfaceManager interfaceManager)
         {
-            if (this.game != null)
+            if (this.interfaceManager != null)
                 return;
 
-            this.game = game;
+            this.interfaceManager = interfaceManager;
 
             startButton.Click += StartButton_Click;
             ExitButton.Click += ExitButton_Click;
@@ -32,12 +25,12 @@ namespace GameNoGame
 
         private void StartButton_Click(object sender, EventArgs e)
         {
-            game.ChooseMap();
+            interfaceManager.ChooseMap();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            game.Exit();
+            interfaceManager.Exit();
         }
     }
 }
