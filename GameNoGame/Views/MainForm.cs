@@ -8,9 +8,8 @@ namespace GameNoGame
 
         public MainForm()
         {
-            InitializeComponent();
-
-            interfaceManager = new InterfaceManager();
+            InitializeComponent(); //создание control'ов
+            interfaceManager = new InterfaceManager(startControl, exitControl, mapChoosingControl, levelControl);
             interfaceManager.StageChanged += Game_OnStageChanged;
 
             ShowStartScreen();

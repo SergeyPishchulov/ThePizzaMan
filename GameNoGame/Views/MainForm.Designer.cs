@@ -84,6 +84,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "MainForm";
+            //this.Paint += new System.Windows.Forms.PaintEventHandler(this.levelControl.OnPaint);
             this.ResumeLayout(false);
 
         }

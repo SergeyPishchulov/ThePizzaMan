@@ -39,7 +39,6 @@ C:\Users\LCM\Documents\GitHub\Game\GameNoGame\bin\Debug\nunit.framework.dll
 C:\Users\LCM\Documents\GitHub\Game\GameNoGame\bin\Debug\nunit.framework.pdb
 C:\Users\LCM\Documents\GitHub\Game\GameNoGame\bin\Debug\nunit.framework.xml
 C:\Users\LCM\Documents\GitHub\Game\GameNoGame\obj\Debug\GameNoGame.csprojAssemblyReference.cache
-C:\Users\LCM\Documents\GitHub\Game\GameNoGame\obj\Debug\GameNoGame.Form1.resources
 C:\Users\LCM\Documents\GitHub\Game\GameNoGame\obj\Debug\GameNoGame.Properties.Resources.resources
 C:\Users\LCM\Documents\GitHub\Game\GameNoGame\obj\Debug\GameNoGame.csproj.GenerateResource.cache
 C:\Users\LCM\Documents\GitHub\Game\GameNoGame\obj\Debug\GameNoGame.csproj.CoreCompileInputs.cache
@@ -154,3 +153,8 @@ C:\Users\Александр\Desktop\GAME\GameNoGame\obj\Debug\GameNoGame.exe
 C:\Users\Александр\Desktop\GAME\GameNoGame\obj\Debug\GameNoGame.pdb
 C:\Users\kryaz\OneDrive\Документы\GitHub\Game\GameNoGame\obj\Debug\GameNoGame.g.resources
 C:\Users\kryaz\OneDrive\Документы\GitHub\Game\GameNoGame\obj\Debug\GameNoGame.MainForm.resources
+C:\Users\LCM\Documents\GitHub\Game\GameNoGame\obj\Debug\GameNoGame.g.resources
+C:\Users\LCM\Documents\GitHub\Game\GameNoGame\obj\Debug\GameNoGame.ExitControl.resources
+C:\Users\LCM\Documents\GitHub\Game\GameNoGame\obj\Debug\GameNoGame.MainForm.resources
+C:\Users\LCM\Documents\GitHub\Game\GameNoGame\obj\Debug\GameNoGame.LevelControl.resources
+C:\Users\LCM\Documents\GitHub\Game\GameNoGame\obj\Debug\GameNoGame.MapChoosingControl.resources

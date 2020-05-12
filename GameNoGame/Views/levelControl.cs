@@ -30,7 +30,7 @@ namespace GameNoGame
             KeyDown += new KeyEventHandler(OnKeyDown);
             KeyUp += new KeyEventHandler(OnKeyUp);
             MouseClick += new MouseEventHandler(OnClick);
-            Init();
+            //Init();
 
         }
 
@@ -108,14 +108,13 @@ namespace GameNoGame
                 playerImage);
             player = (Player)playerAnimation.Creature;
 
-
             monsterAnimation = new CreatureAnimation(
                 new Monster(new Vector(0, 0), new Size(128, 128)),
                 Frames.IdleFrames, Frames.RunFrames, Frames.JumpFrames, Frames.DeathFrames,
                 monsterImage);
             monster = (Monster)monsterAnimation.Creature;
 
-            levelNumber = 2;
+            //levelNumber = 2;
             game = new Game(new Map(levelNumber, player, monster), player, monster);
 
             timer.Start();
@@ -124,11 +123,10 @@ namespace GameNoGame
         private void Update(object sender, EventArgs e)
         {
             game.OnTick(playerAnimation.MoveOffset, playerAnimation.IsJumping, player.HookFixation);
-
             Invalidate();
         }
 
-        private void OnPaint(object sender, PaintEventArgs e)
+        public void OnPaint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             playerAnimation.PlayAnimation(g);
