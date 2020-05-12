@@ -14,7 +14,7 @@ namespace GameNoGame
         {
             switch (levelNumber)
             {
-               case 0:
+               case 1:
                     return new List<Rectangle>() 
                     {
                         new Rectangle(new Vector(0, 700), new Size(1500, 300)),
@@ -25,7 +25,7 @@ namespace GameNoGame
                         monster
                     };
 
-               case 1:
+               case 2:
                     return new List<Rectangle>()
                     {
                         new Rectangle(new Vector(0, 700), new Size(2000, 300)),
@@ -41,7 +41,7 @@ namespace GameNoGame
                         monster
                     };
 
-                case 2:
+                case 3:
                     return new List<Rectangle>()
                     {
                         new Rectangle(new Vector(0, 700), new Size(500, 300)),
@@ -50,6 +50,9 @@ namespace GameNoGame
                         player,
                         monster
                     };
+
+                case 4:
+                    return new List<Rectangle>();
 
                 default:
                     return new List<Rectangle>();
@@ -60,27 +63,29 @@ namespace GameNoGame
         {
             switch (levelNumber)
             {
-                case 0:
-                    g.DrawImage(Properties.Resources.Platform, MapObjects[0].Cast());
-                    g.DrawImage(Properties.Resources.Platform, MapObjects[1].Cast());
-                    g.DrawImage(Properties.Resources.Platform, MapObjects[2].Cast());
-                    g.DrawImage(Properties.Resources.OneBuilding, MapObjects[3].Cast());
-                    break;
-
                 case 1:
-                    g.DrawImage(Properties.Resources.Platform, MapObjects[0].Cast());
-                    g.DrawImage(Properties.Resources.Platform, MapObjects[1].Cast());
-                    g.DrawImage(Properties.Resources.Platform, MapObjects[2].Cast());
-                    g.DrawImage(Properties.Resources.Platform, MapObjects[3].Cast());
-                    g.DrawImage(Properties.Resources.OneBuilding, MapObjects[4].Cast());
-                    g.DrawImage(Properties.Resources.Platform, MapObjects[5].Cast());
-
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[0].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[1].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[2].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\OneBuilding.png"), MapObjects[3].Cast());
                     break;
 
                 case 2:
-                    g.DrawImage(Properties.Resources.Platform, MapObjects[0].Cast());
-                    g.DrawImage(Properties.Resources.Platform, MapObjects[1].Cast());
-                    g.DrawImage(Properties.Resources.Platform, MapObjects[2].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[0].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[1].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[2].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[3].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\OneBuilding.png"), MapObjects[4].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[5].Cast());
+                    break;
+
+                case 3:
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[0].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[1].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[2].Cast());
+                    break;
+
+                case 4:
                     break;
 
             }

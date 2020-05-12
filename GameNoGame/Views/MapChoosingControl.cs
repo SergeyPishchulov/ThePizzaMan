@@ -34,17 +34,17 @@ namespace GameNoGame
 
         private void Map2_Click(object sender, EventArgs e)
         {
-
+            interfaceManager.LaunchSecondMap();
         }
 
         private void Map3_Click(object sender, EventArgs e)
         {
-
+            interfaceManager.LaunchThirdMap();
         }
 
         private void Map4_Click(object sender, EventArgs e)
         {
-
+            interfaceManager.LaunchFourthMap();
         }
     }
 }

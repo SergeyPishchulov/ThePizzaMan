@@ -24,22 +24,21 @@ namespace GameNoGame
         {
             InitializeComponent();
 
-            timer.Interval = 10;
+            timer.Interval = 10;       
             timer.Tick += new EventHandler(Update);
 
             KeyDown += new KeyEventHandler(OnKeyDown);
             KeyUp += new KeyEventHandler(OnKeyUp);
-            MouseClick += new MouseEventHandler(OnClick);
-            //Init();
-
+            MouseClick += new MouseEventHandler(OnClick);         
         }
 
-        public void Configure(InterfaceManager interfaceManager)
+        public void Configure(InterfaceManager interfaceManager, int levelNumber)
         {
             if (this.interfaceManager != null)
                 return;
 
             this.interfaceManager = interfaceManager;
+            timer.Start();
         }
 
         public void OnKeyUp(object sender, KeyEventArgs e)
@@ -99,8 +98,8 @@ namespace GameNoGame
 
         public void Init()
         {
-            playerImage = Properties.Resources.Pizza1;
-            monsterImage = Properties.Resources.Monster1;
+            playerImage = Image.FromFile("Sprites\\Pizza1.png");
+            monsterImage = Image.FromFile("Sprites\\Monster1.png");
 
             playerAnimation = new CreatureAnimation(
                 new Player(new Vector(250, 480), new Size(128, 128)),
@@ -114,10 +113,9 @@ namespace GameNoGame
                 monsterImage);
             monster = (Monster)monsterAnimation.Creature;
 
-            //levelNumber = 2;
             game = new Game(new Map(levelNumber, player, monster), player, monster);
 
-            timer.Start();
+            
         }
 
         private void Update(object sender, EventArgs e)

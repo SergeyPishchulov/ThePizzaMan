@@ -35,7 +35,28 @@ namespace GameNoGame
         {
             levelControl.levelNumber = 1;
             levelControl.Init();
-            ChangeStage(GameStage.Level);
+            ChangeStage(GameStage.LevelFirst);
+        }
+
+        public void LaunchSecondMap()
+        {
+            levelControl.levelNumber = 2;
+            levelControl.Init();
+            ChangeStage(GameStage.LevelSecond);
+        }
+
+        public void LaunchThirdMap()
+        {
+            levelControl.levelNumber = 3;
+            levelControl.Init();
+            ChangeStage(GameStage.LevelThird);
+        }
+
+        public void LaunchFourthMap()
+        {
+            levelControl.levelNumber = 4;
+            levelControl.Init();
+            ChangeStage(GameStage.LevelFourth);
         }
 
         public void Exit()

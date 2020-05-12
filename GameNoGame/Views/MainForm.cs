@@ -8,7 +8,7 @@ namespace GameNoGame
 
         public MainForm()
         {
-            InitializeComponent(); //создание control'ов
+            InitializeComponent();
             interfaceManager = new InterfaceManager(startControl, exitControl, mapChoosingControl, levelControl);
             interfaceManager.StageChanged += Game_OnStageChanged;
 
@@ -19,8 +19,17 @@ namespace GameNoGame
         {
             switch (stage)
             {
-                case GameStage.Level:
-                    ShowLevelScreen();
+                case GameStage.LevelFirst:
+                    ShowLevelScreen(1);
+                    break;
+                case GameStage.LevelSecond:
+                    ShowLevelScreen(2);
+                    break;
+                case GameStage.LevelThird:
+                    ShowLevelScreen(3);
+                    break;
+                case GameStage.LevelFourth:
+                    ShowLevelScreen(4);
                     break;
                 case GameStage.MapChoosing:
                     ShowMapChoosingScreen();
@@ -42,10 +51,10 @@ namespace GameNoGame
             startControl.Show();
         }
 
-        private void ShowLevelScreen()
+        private void ShowLevelScreen(int levelNumber)
         {
             HideScreens();
-            levelControl.Configure(interfaceManager);
+            levelControl.Configure(interfaceManager, levelNumber);     
             levelControl.Show();
         }
 
