@@ -20,16 +20,16 @@ namespace GameNoGame
             switch (stage)
             {
                 case GameStage.LevelFirst:
-                    ShowLevelScreen(1);
+                    ShowLevelScreen();
                     break;
                 case GameStage.LevelSecond:
-                    ShowLevelScreen(2);
+                    ShowLevelScreen();
                     break;
                 case GameStage.LevelThird:
-                    ShowLevelScreen(3);
+                    ShowLevelScreen();
                     break;
                 case GameStage.LevelFourth:
-                    ShowLevelScreen(4);
+                    ShowLevelScreen();
                     break;
                 case GameStage.MapChoosing:
                     ShowMapChoosingScreen();
@@ -51,10 +51,10 @@ namespace GameNoGame
             startControl.Show();
         }
 
-        private void ShowLevelScreen(int levelNumber)
+        private void ShowLevelScreen()
         {
             HideScreens();
-            levelControl.Configure(interfaceManager, levelNumber);     
+            levelControl.Configure(interfaceManager);     
             levelControl.Show();
         }
 

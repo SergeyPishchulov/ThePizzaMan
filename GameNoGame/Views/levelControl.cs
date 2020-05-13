@@ -9,7 +9,7 @@ namespace GameNoGame
     {
         public InterfaceManager interfaceManager;
 
-        public Image playerImage;
+        private Image playerImage;
         public CreatureAnimation playerAnimation;
         public Player player;
         public Image monsterImage;
@@ -32,7 +32,7 @@ namespace GameNoGame
             MouseClick += new MouseEventHandler(OnClick);         
         }
 
-        public void Configure(InterfaceManager interfaceManager, int levelNumber)
+        public void Configure(InterfaceManager interfaceManager)
         {
             if (this.interfaceManager != null)
                 return;
@@ -113,9 +113,7 @@ namespace GameNoGame
                 monsterImage);
             monster = (Monster)monsterAnimation.Creature;
 
-            game = new Game(new Map(levelNumber, player, monster), player, monster);
-
-            
+            game = new Game(new Map(levelNumber, player, monster), player, monster);           
         }
 
         private void Update(object sender, EventArgs e)
