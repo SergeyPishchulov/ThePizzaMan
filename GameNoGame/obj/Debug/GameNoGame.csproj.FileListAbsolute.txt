@@ -184,3 +184,5 @@ C:\Users\LCM\Documents\GitHub\Game\GameNoGame\bin\Debug\Sprites\Pizza2.png
 C:\Users\kryaz\OneDrive\Документы\GitHub\Game\GameNoGame\obj\Debug\GameNoGame.csprojAssemblyReference.cache
 C:\Users\LCM\Documents\GitHub\Game\GameNoGame\bin\Debug\Sprites\ham.png
 C:\Users\LCM\Documents\GitHub\Game\GameNoGame\bin\Debug\Sprites\mush2.png
+C:\Users\kryaz\OneDrive\Документы\GitHub\Game\GameNoGame\bin\Debug\Sprites\ham.png
+C:\Users\kryaz\OneDrive\Документы\GitHub\Game\GameNoGame\bin\Debug\Sprites\mush2.png

@@ -42,17 +42,17 @@ namespace GameNoGame
 
                         new Rectangle(new Vector(0, 100), new Size(100, 350)),
 
-                        new Food (new Vector(1200,100), new Size(64,64)),//17
-                        new Food (new Vector(300,200), new Size(64,64)),
-                        new Food (new Vector(600,50), new Size(64,64)),//19
-                        new Food (new Vector(800,400), new Size(64,64)),//20
+                        new Food (new Vector(1200, 95), new Size(64,64)),//17
+                        new Food (new Vector(300, 195), new Size(64,64)),
+                        new Food (new Vector(600, 45), new Size(64,64)),//19
+                        new Food (new Vector(800, 395), new Size(64,64)),//20
 
 
                         
-                        new Food (new Vector(100,50), new Size(64,64)),//21
-                        new Food (new Vector(800,50), new Size(64,64)),
-                        new Food (new Vector(1200,550), new Size(64,64)),
-                        new Food (new Vector(1200,700), new Size(64,64)),//24
+                        new Food (new Vector(100, 45), new Size(64,64)),//21
+                        new Food (new Vector(800, 45), new Size(64,64)),
+                        new Food (new Vector(1200,545), new Size(64,64)),
+                        new Food (new Vector(1200,695), new Size(64,64)),//24
 
 
                         Aim,

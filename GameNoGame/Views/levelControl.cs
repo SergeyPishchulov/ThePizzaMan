@@ -34,9 +34,6 @@ namespace GameNoGame
 
         public void Configure(InterfaceManager interfaceManager)
         {
-            if (this.interfaceManager != null)
-                return;
-
             this.interfaceManager = interfaceManager;
             timer.Start();
         }
@@ -119,7 +116,11 @@ namespace GameNoGame
         private void Update(object sender, EventArgs e)
         {
             if (game.Finished)
+            {
                 interfaceManager.ChooseMap();
+                timer.Stop();
+            }
+
             game.OnTick(playerAnimation.MoveOffset, playerAnimation.IsJumping, player.HookFixation);
             Invalidate();
 
