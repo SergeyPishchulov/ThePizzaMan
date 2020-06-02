@@ -27,6 +27,7 @@ namespace GameNoGame
                 MoveInRope(hookFixation);
             else
                 MoveOnGround(moveOffset, isNeedJump);
+            MonsterFind(Monster, Player);
         }
 
         private void MoveInRope(Vector hookFixation)
@@ -42,7 +43,7 @@ namespace GameNoGame
             if (Player.RopeVelocity != Vector.Zero)
             {
                 Move(Player, Player.RopeVelocity);
-                if (Map.CanMove(Player, Player.RopeVelocity))
+                if (Map.CanMove((Rectangle)Player, Player.RopeVelocity))
                 {
                     Player.LeftTopLocation += Player.RopeVelocity;
                 }
@@ -97,9 +98,44 @@ namespace GameNoGame
         private bool StayOnGround(ICreature mover) => !Map.CanMove(mover, new Vector(0, 10));
         private bool HitTheRoof(ICreature mover) => !Map.CanMove(mover, new Vector(0, -1));
 
+        private bool WouldStayOnGround(Vector movement, ICreature mover)
+        {
+            var rect = new Rectangle(mover.LeftTopLocation + movement, mover.Size);
+            return Map.CanExist(rect) && !Map.CanMove(rect, new Vector(0, 10));
+        }
+
         private void Jump(ICreature mover)
         {
             mover.Velocity += new Vector(0, -70);
+        }
+
+        private void MonsterFind(Monster monster, Player player)
+        {
+            if (AbleToTeleport(monster, player))
+                Teleport(monster, player);
+            else
+                MoveOnGround(monster, player);
+        }
+
+        private void MoveOnGround(Monster monster, Player player)
+        {
+            var directionToAim = player.LeftTopLocation - monster.LeftTopLocation;
+            var movement = 20 * directionToAim.Normalize();
+            monster.Velocity = new Vector(movement.X, monster.Velocity.Y);
+        }
+
+        private void Teleport(Monster monster, Player player)
+        {
+            var height = (monster.LeftTopLocation - player.LeftTopLocation).Y;
+            var movement = new Vector(0, height);
+            monster.LeftTopLocation += movement;
+        }
+
+        private bool AbleToTeleport(Monster monster, Player player)
+        {
+            var height = (monster.LeftTopLocation - player.LeftTopLocation).Y;
+            var movement = new Vector(0, height);
+            return StayOnGround(player) && WouldStayOnGround(movement, monster);
         }
 
         /* методы игрока: Walk, Run, Jump, ShotRope */
