@@ -51,7 +51,8 @@ namespace GameNoGame
             if (e.Button == MouseButtons.Left)
             {
                 var hookFixation = new Vector(e.Location.X, e.Location.Y);
-                if (player.HookFixation == Vector.Zero && game.Map.IsInPlatform(hookFixation))
+                if (player.HookFixation == Vector.Zero && game.Map.IsInPlatform(hookFixation) &&
+                    hookFixation.Y < player.LeftTopLocation.Y)
                 {
                     player.HookFixation = hookFixation;
                     playerAnimation.SetAnimation(3);
@@ -110,7 +111,7 @@ namespace GameNoGame
                 game.Monster,
                 Frames.IdleFrames, Frames.RunFrames, Frames.JumpFrames, Frames.DeathFrames,
                 monsterImage);
-            monster = (Monster)monsterAnimation.Creature;                   
+            monster = (Monster)monsterAnimation.Creature;
         }
 
         private void Update(object sender, EventArgs e)

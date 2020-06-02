@@ -9,7 +9,7 @@ namespace GameNoGame
         public Map Map;
         public int Scores;
         public Vector GravityForce = new Vector(0, 10);
-        public bool Finished=false;
+        public bool Finished = false;
 
         public Game(Map map, Player player, Monster monster)
         {
@@ -25,20 +25,21 @@ namespace GameNoGame
 
         public void OnTick(Vector moveOffset, bool isNeedJump, Vector hookFixation)
         {
-
-            if (hookFixation != Vector.Zero)
+            if (hookFixation != Vector.Zero && hookFixation.Y<Player.LeftTopLocation.Y)
                 MoveInRope(hookFixation);
             else
                 MoveOnGround(moveOffset, isNeedJump);
             MonsterFind(Monster, Player);
+            if (Rectangle.AreIntersected(Player, Monster))
+                Player.Health -= 5;
             Move(Monster, Monster.Velocity);
             if (GetAim()
-            || Player.LeftTopLocation.Y > 880)
+            || Player.LeftTopLocation.Y > 880 || !Player.IsAlive())
                 Finished = true;
             if (Map.GetFood(Player))
                 Scores += 10;
         }
-   
+
         private bool GetAim()
         {
             return Rectangle.AreIntersected(Player, Aim);
@@ -69,7 +70,7 @@ namespace GameNoGame
         private void MoveOnGround(Vector moveOffset, bool isNeedJump)
         {
             Player.RopeVelocity = Vector.Zero;
-            Move(Player, 30 * moveOffset); //по X
+            Move(Player, 30 * moveOffset); //по X+\-30
             if (isNeedJump && StayOnGround(Player))
                 Jump(Player);
             Gravity();
@@ -81,7 +82,7 @@ namespace GameNoGame
         public void Gravity()
         {
             Player.Velocity += GravityForce;
-            Monster.Velocity = 5 * GravityForce;
+            Monster.Velocity = new Vector(Monster.Velocity.X, 5 * GravityForce.Y);
         }
 
         private void Move(ICreature mover, Vector movement)
@@ -124,21 +125,29 @@ namespace GameNoGame
 
         private void MonsterFind(Monster monster, Player player)
         {
-            if (AbleToTeleport(monster, player))
-                Teleport(monster, player);
-            else
-                MoveOnGround(monster, player);
+            //if (AbleToTeleport(monster, player))
+            //    Teleport(monster, player);
+            //else
+            MoveOnGround(monster, player);
         }
 
         private void MoveOnGround(Monster monster, Player player)
         {
+            Vector xOffset;
             var directionToAim = player.LeftTopLocation - monster.LeftTopLocation;
             if (directionToAim.X > 20)
-                monster.Velocity = new Vector(20, monster.Velocity.Y);
+            {
+                xOffset = new Vector(20,0);
+            }
             else if (directionToAim.X < -20)
-                monster.Velocity = new Vector(-20, monster.Velocity.Y);
+            {
+                xOffset = new Vector(-20, 0);
+            }
+
             else
-                monster.Velocity = new Vector(directionToAim.X, monster.Velocity.Y);
+                 xOffset= new Vector(directionToAim.X, 0);
+            Move(monster, xOffset);
+            //if (directionToAim.X<0)
         }
 
         private void Teleport(Monster monster, Player player)

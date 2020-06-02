@@ -5,7 +5,7 @@ namespace GameNoGame
 {
     public class Player : Rectangle, ICreature
     {
-        public int Health { get; }
+        public int Health { get; set; }
 
         public Vector Velocity { get; set; }
         public Vector RopeVelocity;
