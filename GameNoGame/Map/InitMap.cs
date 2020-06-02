@@ -19,15 +19,15 @@ namespace GameNoGame
                     {
                         new Rectangle(new Vector(0, 700), new Size(1500, 300)),
                         new Rectangle(new Vector(700, 100), new Size(100, 100)),
-                        new Rectangle(new Vector(0, 300), new Size(1500, 20)),
+                        new Rectangle(new Vector(0, 300), new Size(700, 20)),
                         new Rectangle(new Vector(200, 20), new Size(100, 100)),
                         player,
                         monster,
 
-                        new Rectangle(new Vector(0,0), new Size(1, 1024)),
-                        new Rectangle(new Vector(0,0), new Size(1440, 1)),
-                        new Rectangle(new Vector(1440 ,0), new Size(1, 1024)),
-                        new Rectangle(new Vector(1440,0), new Size(1440, 1))
+                        new Rectangle(new Vector(0,0), new Size(1, 1024)), // левый край
+                        new Rectangle(new Vector(0,0), new Size(1440, 1)), // верхний край
+                        new Rectangle(new Vector(1440 ,0), new Size(1, 1024)), // правый край
+                        new Rectangle(new Vector(0, 1280), new Size(1440, 10)) // нижний край
                     };
 
                case 2:
@@ -45,10 +45,10 @@ namespace GameNoGame
                         player,
                         monster,
 
-                        new Rectangle(new Vector(0,0), new Size(1, 1024)),
-                        new Rectangle(new Vector(0,0), new Size(1440, 1)),
-                        new Rectangle(new Vector(1440, 0), new Size(1, 1024)),
-                        new Rectangle(new Vector(1440, 1024), new Size(1440, 1))
+                        new Rectangle(new Vector(0,0), new Size(1, 1024)), // левый край
+                        new Rectangle(new Vector(0,0), new Size(1440, 1)), // верхний край
+                        new Rectangle(new Vector(1440 ,0), new Size(1, 1024)), // правый край
+                        new Rectangle(new Vector(0, 1280), new Size(1440, 10)) // нижний край
                     };
 
                 case 3:
@@ -60,19 +60,19 @@ namespace GameNoGame
                         player,
                         monster,
 
-                        new Rectangle(new Vector(0,0), new Size(1, 1024)),
-                        new Rectangle(new Vector(0,0), new Size(1440, 1)),
-                        new Rectangle(new Vector(1440, 0), new Size(1, 1024)),
-                        new Rectangle(new Vector(1440, 1024), new Size(1440, 1))
+                        new Rectangle(new Vector(0,0), new Size(1, 1024)), // левый край
+                        new Rectangle(new Vector(0,0), new Size(1440, 1)), // верхний край
+                        new Rectangle(new Vector(1440 ,0), new Size(1, 1024)), // правый край
+                        new Rectangle(new Vector(0, 1280), new Size(1440, 10)) // нижний край
                     };
 
                 case 4:
                     return new List<Rectangle>()
                     {
-                        new Rectangle(new Vector(0,0), new Size(1, 1024)),
-                        new Rectangle(new Vector(0,0), new Size(1440, 1)),
-                        new Rectangle(new Vector(1440 ,0), new Size(1, 1024)),
-                        new Rectangle(new Vector(1440, 1024), new Size(1440, 1))
+                        new Rectangle(new Vector(0,0), new Size(1, 1024)), // левый край
+                        new Rectangle(new Vector(0,0), new Size(1440, 1)), // верхний край
+                        new Rectangle(new Vector(1440 ,0), new Size(1, 1024)), // правый край
+                        new Rectangle(new Vector(0, 1280), new Size(1440, 10)) // нижний край
                     };
 
                 default:
