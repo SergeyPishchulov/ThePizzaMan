@@ -133,12 +133,14 @@ namespace GameNoGame
             monsterAnimation.PlayAnimation(g);
 
             game.Map.DrawMap(g, levelNumber);
-            g.DrawString($"Номер карты: {levelNumber}", new Font("Arial", 16),
-                                new SolidBrush(Color.Black), new PointF(3, 3));
+            g.DrawString($"{levelNumber}", new Font("Arial", 16),
+                                new SolidBrush(Color.Black), new PointF(1400, 3));
             g.DrawString($"Health: {player.Health}", new Font("Arial", 16, FontStyle.Bold),
                                 new SolidBrush(Color.Black), new PointF(3, 25));
+            g.DrawString($"Scores: {game.Scores}", new Font("Arial", 16, FontStyle.Bold),
+                                new SolidBrush(Color.Black), new PointF(3, 48));
             g.DrawString("Finish", new Font("Arial", 16, FontStyle.Bold),
-                                new SolidBrush(Color.Black), new PointF(1200, 50));
+                                new SolidBrush(Color.Black), new PointF(1250, 50));
         }
     }
 }

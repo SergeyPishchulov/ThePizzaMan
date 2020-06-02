@@ -37,7 +37,9 @@ namespace GameNoGame
         {
             for (int i = 0; i < MapObjects.Count; i++)
             {
-                if (Rectangle.AreIntersected(MapObjects[i], mover))
+                if (MapObjects[i] is Food
+                 && Rectangle.AreIntersected(MapObjects[i], mover)
+                 && MapObjects[i].Use)
                 {
                     MapObjects[i].Use=false;
                     return true;

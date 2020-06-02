@@ -121,6 +121,23 @@ namespace GameNoGame
                     g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[3].Cast());
                     g.DrawImage(Image.FromFile("Sprites\\OneBuilding.png"), MapObjects[4].Cast());
                     g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[5].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[6].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[7].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[8].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[9].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[10].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[11].Cast());
+
+                    for (int i = 12; i <= 14; i++)
+                    {
+                        if (MapObjects[i].Use)
+                            g.DrawImage(Image.FromFile("Sprites\\ham.png"), MapObjects[i].Cast());
+                    }
+                    for (int i = 15; i <= 16; i++)
+                    {
+                        if (MapObjects[i].Use)
+                            g.DrawImage(Image.FromFile("Sprites\\mush2.png"), MapObjects[i].Cast());
+                    }
                     break;
 
                 case 3:

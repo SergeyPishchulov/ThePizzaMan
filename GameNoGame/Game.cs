@@ -32,7 +32,8 @@ namespace GameNoGame
                 MoveOnGround(moveOffset, isNeedJump);
             MonsterFind(Monster, Player);
             Move(Monster, Monster.Velocity);
-            if (GetAim())
+            if (GetAim()
+            || Player.LeftTopLocation.Y > 880)
                 Finished = true;
             if (Map.GetFood(Player))
                 Scores += 10;
