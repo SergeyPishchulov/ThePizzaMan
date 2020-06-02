@@ -74,7 +74,6 @@ C:\Users\kryaz\OneDrive\Документы\GitHub\Game\GameNoGame\bin\Debug\Game
 C:\Users\kryaz\OneDrive\Документы\GitHub\Game\GameNoGame\bin\Debug\nunit.framework.dll
 C:\Users\kryaz\OneDrive\Документы\GitHub\Game\GameNoGame\bin\Debug\nunit.framework.pdb
 C:\Users\kryaz\OneDrive\Документы\GitHub\Game\GameNoGame\bin\Debug\nunit.framework.xml
-C:\Users\kryaz\OneDrive\Документы\GitHub\Game\GameNoGame\obj\Debug\GameNoGame.csprojAssemblyReference.cache
 C:\Users\kryaz\OneDrive\Документы\GitHub\Game\GameNoGame\obj\Debug\GameNoGame.Properties.Resources.resources
 C:\Users\kryaz\OneDrive\Документы\GitHub\Game\GameNoGame\obj\Debug\GameNoGame.StartControl.resources
 C:\Users\kryaz\OneDrive\Документы\GitHub\Game\GameNoGame\obj\Debug\GameNoGame.csproj.GenerateResource.cache

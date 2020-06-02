@@ -89,6 +89,19 @@ namespace GameNoGame
                     g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[1].Cast());
                     g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[2].Cast());
                     g.DrawImage(Image.FromFile("Sprites\\OneBuilding.png"), MapObjects[3].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\OneBuilding.png"), MapObjects[4].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\OneBuilding.png"), MapObjects[5].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[6].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[7].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[8].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\OneBuilding.png"), MapObjects[9].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[10].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[11].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[12].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\OneBuilding.png"), MapObjects[13].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\OneBuilding.png"), MapObjects[14].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\OneBuilding.png"), MapObjects[15].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\OneBuilding.png"), MapObjects[16].Cast());
                     break;
 
                 case 2:
@@ -107,6 +120,10 @@ namespace GameNoGame
                     break;
 
                 case 4:
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[2].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[3].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[4].Cast());
+                    g.DrawImage(Image.FromFile("Sprites\\Platform.png"), MapObjects[5].Cast());
                     break;
 
             }
