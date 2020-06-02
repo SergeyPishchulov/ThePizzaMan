@@ -140,7 +140,7 @@ namespace GameNoGame
             g.DrawString($"Scores: {game.Scores}", new Font("Arial", 16, FontStyle.Bold),
                                 new SolidBrush(Color.Black), new PointF(3, 48));
             g.DrawString("Finish", new Font("Arial", 16, FontStyle.Bold),
-                                new SolidBrush(Color.Black), new PointF(1250, 50));
+                                new SolidBrush(Color.Black), new PointF(1300, 50));
         }
     }
 }

@@ -186,3 +186,6 @@ C:\Users\LCM\Documents\GitHub\Game\GameNoGame\bin\Debug\Sprites\ham.png
 C:\Users\LCM\Documents\GitHub\Game\GameNoGame\bin\Debug\Sprites\mush2.png
 C:\Users\kryaz\OneDrive\Документы\GitHub\Game\GameNoGame\bin\Debug\Sprites\ham.png
 C:\Users\kryaz\OneDrive\Документы\GitHub\Game\GameNoGame\bin\Debug\Sprites\mush2.png
+C:\Users\kryaz\OneDrive\Документы\GitHub\Game\GameNoGame\bin\Debug\Sprites\2020-06-03_02-08-37.png
+C:\Users\kryaz\OneDrive\Документы\GitHub\Game\GameNoGame\bin\Debug\Sprites\3.png
+C:\Users\kryaz\OneDrive\Документы\GitHub\Game\GameNoGame\bin\Debug\Sprites\4.png

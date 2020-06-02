@@ -38,19 +38,26 @@
             // 
             // Map1
             // 
+            this.Map1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Map1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Map1.BackgroundImage")));
+            this.Map1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Map1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Map1.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Map1.Location = new System.Drawing.Point(333, 133);
             this.Map1.Margin = new System.Windows.Forms.Padding(4);
             this.Map1.Name = "Map1";
             this.Map1.Size = new System.Drawing.Size(533, 369);
             this.Map1.TabIndex = 0;
-            this.Map1.UseVisualStyleBackColor = true;
+            this.Map1.Text = "1";
+            this.Map1.UseVisualStyleBackColor = false;
             this.Map1.Click += new System.EventHandler(this.Map1_Click);
             // 
             // Map2
             // 
-            this.Map2.BackColor = System.Drawing.Color.Thistle;
+            this.Map2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Map2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Map2.BackgroundImage")));
+            this.Map2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Map2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Map2.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Map2.Location = new System.Drawing.Point(1053, 133);
             this.Map2.Margin = new System.Windows.Forms.Padding(4);
@@ -63,7 +70,10 @@
             // 
             // Map3
             // 
-            this.Map3.BackColor = System.Drawing.Color.Thistle;
+            this.Map3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Map3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Map3.BackgroundImage")));
+            this.Map3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Map3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Map3.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Map3.Location = new System.Drawing.Point(333, 591);
             this.Map3.Margin = new System.Windows.Forms.Padding(4);
@@ -76,7 +86,10 @@
             // 
             // Map4
             // 
-            this.Map4.BackColor = System.Drawing.Color.Thistle;
+            this.Map4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Map4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Map4.BackgroundImage")));
+            this.Map4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Map4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Map4.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Map4.Location = new System.Drawing.Point(1053, 591);
             this.Map4.Margin = new System.Windows.Forms.Padding(4);
@@ -95,6 +108,7 @@
             this.Back.BackColor = System.Drawing.Color.Black;
             this.Back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Back.BackgroundImage")));
             this.Back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Back.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Back.Image = ((System.Drawing.Image)(resources.GetObject("Back.Image")));
             this.Back.Location = new System.Drawing.Point(20, 18);

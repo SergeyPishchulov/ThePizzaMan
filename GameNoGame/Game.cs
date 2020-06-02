@@ -81,7 +81,7 @@ namespace GameNoGame
         public void Gravity()
         {
             Player.Velocity += GravityForce;
-            Monster.Velocity = GravityForce;
+            Monster.Velocity = 5 * GravityForce;
         }
 
         private void Move(ICreature mover, Vector movement)

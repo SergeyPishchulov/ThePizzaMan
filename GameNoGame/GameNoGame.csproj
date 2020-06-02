@@ -159,7 +159,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Sprites\2020-06-02_20-02-49.png" />
+    <Content Include="Sprites\2020-06-03_02-08-37.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Sprites\City.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
