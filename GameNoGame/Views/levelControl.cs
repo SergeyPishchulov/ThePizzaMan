@@ -15,7 +15,7 @@ namespace GameNoGame
         public Image monsterImage;
         public CreatureAnimation monsterAnimation;
         public Monster monster;
-        public Game game;
+        private Game game;
         public int levelNumber;
 
         public List<System.Drawing.Rectangle> FormObjects { get; private set; }
@@ -24,12 +24,12 @@ namespace GameNoGame
         {
             InitializeComponent();
 
-            timer.Interval = 20;       
+            timer.Interval = 10;
             timer.Tick += new EventHandler(Update);
 
             KeyDown += new KeyEventHandler(OnKeyDown);
             KeyUp += new KeyEventHandler(OnKeyUp);
-            MouseClick += new MouseEventHandler(OnClick);         
+            MouseClick += new MouseEventHandler(OnClick);
         }
 
         public void Configure(InterfaceManager interfaceManager)
@@ -98,22 +98,23 @@ namespace GameNoGame
 
         public void Init()
         {
-            playerImage = Image.FromFile("Sprites\\Pizza2.png");
+            playerImage = Image.FromFile("Sprites\\Pizza1.png");
             monsterImage = Image.FromFile("Sprites\\Monster1.png");
 
             playerAnimation = new CreatureAnimation(
-                new Player(new Vector(250, 480), new Size(64, 64)),
+                new Player(new Vector(250, 480), new Size(128, 128)),
                 Frames.IdleFrames, Frames.RunFrames, Frames.JumpFrames, Frames.DeathFrames,
                 playerImage);
             player = (Player)playerAnimation.Creature;
 
             monsterAnimation = new CreatureAnimation(
-                new Monster(new Vector(200, 200), new Size(64, 64)),
+                new Monster(new Vector(0, 0), new Size(128, 128)),
                 Frames.IdleFrames, Frames.RunFrames, Frames.JumpFrames, Frames.DeathFrames,
                 monsterImage);
             monster = (Monster)monsterAnimation.Creature;
 
-            game = new Game(new Map(levelNumber, player, monster), player, monster);           
+            game = new Game(levelNumber);
+            //game = new Game(new Map(levelNumber, player, monster), player, monster);           
         }
 
         private void Update(object sender, EventArgs e)
