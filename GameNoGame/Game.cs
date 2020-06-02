@@ -5,9 +5,11 @@ namespace GameNoGame
     {
         public Player Player;
         public Monster Monster;
+        public Rectangle Aim;
         public Map Map;
         public int Scores;
         public Vector GravityForce = new Vector(0, 10);
+        public bool Finished=false;
 
         public Game(Map map, Player player, Monster monster)
         {
@@ -23,12 +25,20 @@ namespace GameNoGame
 
         public void OnTick(Vector moveOffset, bool isNeedJump, Vector hookFixation)
         {
+
             if (hookFixation != Vector.Zero)
                 MoveInRope(hookFixation);
             else
                 MoveOnGround(moveOffset, isNeedJump);
             MonsterFind(Monster, Player);
             Move(Monster, Monster.Velocity);
+            if (GetAim())
+                Finished = true;
+        }
+
+        private bool GetAim()
+        {
+            return Rectangle.AreIntersected(Player, Aim);
         }
 
         private void MoveInRope(Vector hookFixation)

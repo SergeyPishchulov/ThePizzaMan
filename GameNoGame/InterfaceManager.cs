@@ -74,7 +74,7 @@ namespace GameNoGame
             Application.Exit();
         }
 
-        private void ChangeStage(GameStage stage)
+        public void ChangeStage(GameStage stage)
         {
             Stage = stage;
             StageChanged?.Invoke(stage);

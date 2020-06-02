@@ -13,6 +13,8 @@ namespace GameNoGame
 
         public Vector LeftTopLocation { get; set; }
 
+        public bool Aim = false;
+
         public Rectangle(Vector leftTopLocation, Size size)
         {
             //Location = location;

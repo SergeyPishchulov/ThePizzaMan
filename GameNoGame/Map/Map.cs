@@ -26,7 +26,7 @@ namespace GameNoGame
             var destination = new Rectangle(mover.LeftTopLocation + movement, mover.Size);
 
             var res = MapObjects
-                .Where(o => !(o is ICreature)) //умеет ходить только сквозь ICreature
+                .Where(o => !(o is ICreature) && !(((Rectangle)o).Aim )) //умеет ходить только сквозь ICreature
                 .Select(r => Rectangle.AreIntersected(r, destination))
                 .All(i => i == false);
 

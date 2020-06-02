@@ -68,7 +68,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Aim.cs" />
+    <Compile Include="InitGame.cs" />
     <Compile Include="InterfaceManager.cs" />
     <Compile Include="Views\ExitControl.cs">
       <SubType>UserControl</SubType>

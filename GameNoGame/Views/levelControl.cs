@@ -113,15 +113,16 @@ namespace GameNoGame
                 game.Monster,
                 Frames.IdleFrames, Frames.RunFrames, Frames.JumpFrames, Frames.DeathFrames,
                 monsterImage);
-            monster = (Monster)monsterAnimation.Creature;
-
-                   
+            monster = (Monster)monsterAnimation.Creature;                   
         }
 
         private void Update(object sender, EventArgs e)
         {
+            if (game.Finished)
+                interfaceManager.ChooseMap();
             game.OnTick(playerAnimation.MoveOffset, playerAnimation.IsJumping, player.HookFixation);
             Invalidate();
+
         }
 
         public void OnPaint(object sender, PaintEventArgs e)
@@ -135,6 +136,8 @@ namespace GameNoGame
                                 new SolidBrush(Color.Black), new PointF(3, 3));
             g.DrawString($"Health: {player.Health}", new Font("Arial", 16, FontStyle.Bold),
                                 new SolidBrush(Color.Black), new PointF(3, 25));
+            g.DrawString("Finish", new Font("Arial", 16, FontStyle.Bold),
+                                new SolidBrush(Color.Black), new PointF(1200, 50));
         }
     }
 }
