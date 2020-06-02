@@ -14,7 +14,7 @@ namespace GameNoGame
         {
             switch (levelNumber)
             {
-               case 1:
+                case 1:
                     return new List<Rectangle>()
                     {
                         new Rectangle(new Vector(0, 700), new Size(1500, 300)),
@@ -30,7 +30,7 @@ namespace GameNoGame
                         new Rectangle(new Vector(0, 1280), new Size(1440, 10)) // нижний край
                     };
 
-               case 2:
+                case 2:
                     return new List<Rectangle>()
                     {
                         new Rectangle(new Vector(0, 700), new Size(2000, 300)),
@@ -102,6 +102,16 @@ namespace GameNoGame
                     g.DrawImage(Image.FromFile("Sprites\\OneBuilding.png"), MapObjects[14].Cast());
                     g.DrawImage(Image.FromFile("Sprites\\OneBuilding.png"), MapObjects[15].Cast());
                     g.DrawImage(Image.FromFile("Sprites\\OneBuilding.png"), MapObjects[16].Cast());
+                    for (int i = 17; i <=20; i++)
+                    {
+                        if (MapObjects[i].Use)
+                            g.DrawImage(Image.FromFile("Sprites\\ham.png"), MapObjects[i].Cast());
+                    }
+                    for (int i = 21; i <= 24; i++)
+                    {
+                        if (MapObjects[i].Use)
+                            g.DrawImage(Image.FromFile("Sprites\\mush2.png"), MapObjects[i].Cast());
+                    }
                     break;
 
                 case 2:

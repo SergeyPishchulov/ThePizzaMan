@@ -9,9 +9,9 @@ namespace GameNoGame
 {
     public partial class Map
     {
-        public List<Rectangle> MapObjects { get; private set; }        
+        public List<Rectangle> MapObjects { get; private set; }
 
-        public Map(int levelNumber, Player player, Monster monster) 
+        public Map(int levelNumber, Player player, Monster monster)
         {
             MapObjects = InitMap(levelNumber, player, monster);
         }
@@ -26,11 +26,24 @@ namespace GameNoGame
             var destination = new Rectangle(mover.LeftTopLocation + movement, mover.Size);
 
             var res = MapObjects
-                .Where(o => !(o is ICreature) && !(((Rectangle)o).Aim )) //умеет ходить только сквозь ICreature
+                .Where(o =>!(o is ICreature) && !o.Aim && !(o is Food)) //умеет ходить только сквозь ICreature
                 .Select(r => Rectangle.AreIntersected(r, destination))
                 .All(i => i == false);
 
             return res;
+        }
+
+        public bool GetFood(Rectangle mover)
+        {
+            for (int i = 0; i < MapObjects.Count; i++)
+            {
+                if (Rectangle.AreIntersected(MapObjects[i], mover))
+                {
+                    MapObjects[i].Use=false;
+                    return true;
+                }
+            }
+            return false;
         }
 
         public bool CanMove(Rectangle mover, Vector movement)
@@ -38,7 +51,7 @@ namespace GameNoGame
             var destination = new Rectangle(mover.LeftTopLocation + movement, mover.Size);
 
             var res = MapObjects
-                .Where(o => !(o is ICreature)) //умеет ходить только сквозь ICreature
+                .Where(o =>!(o is ICreature) && !o.Aim && !(o is Food)) //умеет ходить только сквозь ICreature
                 .Select(r => Rectangle.AreIntersected(r, destination))
                 .All(i => i == false);
 
@@ -62,6 +75,6 @@ namespace GameNoGame
             return MapObjects
                 .Where(o => !(o is ICreature))
                 .Any(i => Rectangle.AreIntersected(i, destination));
-        }       
+        }
     }
 }

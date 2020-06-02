@@ -23,19 +23,37 @@ namespace GameNoGame
                         new Rectangle(new Vector(1000, 750), new Size(800, 300)),
                         new Rectangle(new Vector(100, 100), new Size(200, 20)),
                         new Rectangle(new Vector(400, 100), new Size(600, 20)),
+
                         new Rectangle(new Vector(200, 250), new Size(200, 20)),
                         new Rectangle(new Vector(800, 300), new Size(100, 20)),
                         new Rectangle(new Vector(1000, 200), new Size(100, 20)),
                         new Rectangle(new Vector(0,0), new Size(2, 880)), // левый край
+
                         new Rectangle(new Vector(0,0), new Size(1440, 2)), // верхний край
                         new Rectangle(new Vector(1440 ,0), new Size(2, 880)), // правый край
                         new Rectangle(new Vector(1200, 600), new Size(1140, 20)),
                         new Rectangle(new Vector(100, 600), new Size(1000, 20)),
+
                         new Rectangle(new Vector(1300, 400), new Size(300, 20)),
                         new Rectangle(new Vector(0, 450), new Size(400, 20)),
                         new Rectangle(new Vector(500, 450), new Size(700, 20)),
                         new Rectangle(new Vector(1200, 150), new Size(300, 20)),
+
+
                         new Rectangle(new Vector(0, 100), new Size(100, 350)),
+
+                        new Food (new Vector(1200,100), new Size(64,64)),//17
+                        new Food (new Vector(300,200), new Size(64,64)),
+                        new Food (new Vector(600,50), new Size(64,64)),//19
+                        new Food (new Vector(800,400), new Size(64,64)),//20
+
+
+                        
+                        new Food (new Vector(100,50), new Size(64,64)),//21
+                        new Food (new Vector(800,50), new Size(64,64)),
+                        new Food (new Vector(1200,550), new Size(64,64)),
+                        new Food (new Vector(1200,700), new Size(64,64)),//24
+
 
                         Aim,
                         Player,
@@ -46,6 +64,8 @@ namespace GameNoGame
             }
             else if (levelNumber == 2)
             {
+                Aim = new Rectangle(new Vector(1250, 50), new Size(100, 100));
+                Aim.Aim = true;
                 Player = new Player(new Vector(250, 480), new Size(64, 64));
                 Monster = new Monster(new Vector(100, 480), new Size(64, 64));
                 var mapObjects = new List<Rectangle>()
@@ -58,13 +78,20 @@ namespace GameNoGame
 
                         new Rectangle(new Vector(1100, 400), new Size(250, 340)),
 
-                        new Rectangle(new Vector(200, 10), new Size(1000, 10)),
+                        new Rectangle(new Vector(200, 10), new Size(1000, 10)),                        
+
+                        new Rectangle(new Vector(0,0), new Size(1, 1024)), // левый край 6
+                        new Rectangle(new Vector(0,0), new Size(1440, -10)), // верхний край 7
+                        new Rectangle(new Vector(1440 ,0), new Size(1, 1024)), // правый край 8
+
+                        //new Food (new Vector(100,50), new Size(64,64)),//9
+                        //new Food (new Vector(800,50), new Size(64,64)),
+                        //new Food (new Vector(1200,550), new Size(64,64)),
+                        //new Food (new Vector(1200,700), new Size(64,64)),//12
+
+                        Aim,
                         Player,
                         Monster,
-
-                        new Rectangle(new Vector(0,0), new Size(1, 1024)), // левый край
-                        new Rectangle(new Vector(0,0), new Size(1440, 1)), // верхний край
-                        new Rectangle(new Vector(1440 ,0), new Size(1, 1024)), // правый край
                     };
                 Map = new Map(mapObjects);
             }

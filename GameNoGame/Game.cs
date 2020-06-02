@@ -34,8 +34,10 @@ namespace GameNoGame
             Move(Monster, Monster.Velocity);
             if (GetAim())
                 Finished = true;
+            if (Map.GetFood(Player))
+                Scores += 10;
         }
-
+   
         private bool GetAim()
         {
             return Rectangle.AreIntersected(Player, Aim);
