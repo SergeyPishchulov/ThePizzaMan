@@ -15,14 +15,19 @@ namespace GameNoGame
             switch (levelNumber)
             {
                case 1:
-                    return new List<Rectangle>() 
+                    return new List<Rectangle>()
                     {
                         new Rectangle(new Vector(0, 700), new Size(1500, 300)),
                         new Rectangle(new Vector(700, 100), new Size(100, 100)),
                         new Rectangle(new Vector(0, 300), new Size(1500, 20)),
                         new Rectangle(new Vector(200, 20), new Size(100, 100)),
                         player,
-                        monster
+                        monster,
+
+                        new Rectangle(new Vector(0,0), new Size(1, 1024)),
+                        new Rectangle(new Vector(0,0), new Size(1440, 1)),
+                        new Rectangle(new Vector(1440 ,0), new Size(1, 1024)),
+                        new Rectangle(new Vector(1440,0), new Size(1440, 1))
                     };
 
                case 2:
@@ -38,7 +43,12 @@ namespace GameNoGame
 
                         new Rectangle(new Vector(200, 10), new Size(1000, 10)),
                         player,
-                        monster
+                        monster,
+
+                        new Rectangle(new Vector(0,0), new Size(1, 1024)),
+                        new Rectangle(new Vector(0,0), new Size(1440, 1)),
+                        new Rectangle(new Vector(1440, 0), new Size(1, 1024)),
+                        new Rectangle(new Vector(1440, 1024), new Size(1440, 1))
                     };
 
                 case 3:
@@ -48,11 +58,22 @@ namespace GameNoGame
                         new Rectangle(new Vector(900, 700), new Size(1000, 300)),
                         new Rectangle(new Vector(500, 100), new Size(400, 30)),
                         player,
-                        monster
+                        monster,
+
+                        new Rectangle(new Vector(0,0), new Size(1, 1024)),
+                        new Rectangle(new Vector(0,0), new Size(1440, 1)),
+                        new Rectangle(new Vector(1440, 0), new Size(1, 1024)),
+                        new Rectangle(new Vector(1440, 1024), new Size(1440, 1))
                     };
 
                 case 4:
-                    return new List<Rectangle>();
+                    return new List<Rectangle>()
+                    {
+                        new Rectangle(new Vector(0,0), new Size(1, 1024)),
+                        new Rectangle(new Vector(0,0), new Size(1440, 1)),
+                        new Rectangle(new Vector(1440 ,0), new Size(1, 1024)),
+                        new Rectangle(new Vector(1440, 1024), new Size(1440, 1))
+                    };
 
                 default:
                     return new List<Rectangle>();

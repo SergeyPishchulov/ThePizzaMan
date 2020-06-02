@@ -24,7 +24,7 @@ namespace GameNoGame
         {
             InitializeComponent();
 
-            timer.Interval = 10;       
+            timer.Interval = 20;       
             timer.Tick += new EventHandler(Update);
 
             KeyDown += new KeyEventHandler(OnKeyDown);
@@ -98,17 +98,17 @@ namespace GameNoGame
 
         public void Init()
         {
-            playerImage = Image.FromFile("Sprites\\Pizza1.png");
+            playerImage = Image.FromFile("Sprites\\Pizza2.png");
             monsterImage = Image.FromFile("Sprites\\Monster1.png");
 
             playerAnimation = new CreatureAnimation(
-                new Player(new Vector(250, 480), new Size(128, 128)),
+                new Player(new Vector(250, 480), new Size(64, 64)),
                 Frames.IdleFrames, Frames.RunFrames, Frames.JumpFrames, Frames.DeathFrames,
                 playerImage);
             player = (Player)playerAnimation.Creature;
 
             monsterAnimation = new CreatureAnimation(
-                new Monster(new Vector(0, 0), new Size(128, 128)),
+                new Monster(new Vector(200, 200), new Size(64, 64)),
                 Frames.IdleFrames, Frames.RunFrames, Frames.JumpFrames, Frames.DeathFrames,
                 monsterImage);
             monster = (Monster)monsterAnimation.Creature;

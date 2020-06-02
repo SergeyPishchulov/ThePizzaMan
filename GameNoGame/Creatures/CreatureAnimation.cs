@@ -78,7 +78,7 @@ namespace GameNoGame
                 new System.Drawing.Rectangle(
                     playerPoint,
                     new Size(Flip * Creature.Size.Width, Creature.Size.Height)),
-                    128 * CurrentFrame, 128 * CurrentAnimation, Creature.Size.Width, Creature.Size.Height,
+                    64 * CurrentFrame, 64 * CurrentAnimation, Creature.Size.Width, Creature.Size.Height,
                     GraphicsUnit.Pixel);
 
             if (CurrentFrame < CurrentLimit - 1)

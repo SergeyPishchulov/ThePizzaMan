@@ -11,7 +11,7 @@ namespace GameNoGame
         {
             LeftTopLocation = location;
             Health = 100;
-            Size = new Size(128, 128);
+            Size = new Size(64, 64);
         }
 
         public Vector SearchPlayer(Player player)
