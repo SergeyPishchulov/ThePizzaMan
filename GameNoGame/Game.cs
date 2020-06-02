@@ -1,7 +1,7 @@
 ﻿
 namespace GameNoGame
 {
-    public class Game
+    partial class Game
     {
         public Player Player;
         public Monster Monster;
@@ -16,8 +16,13 @@ namespace GameNoGame
             Monster = monster;
         }
 
+        public Game(int levelNumber)
+        {
+            InitGame(levelNumber);
+        }
+
         public void OnTick(Vector moveOffset, bool isNeedJump, Vector hookFixation)
-        {            
+        {
             if (hookFixation != Vector.Zero)
                 MoveInRope(hookFixation);
             else
@@ -54,7 +59,7 @@ namespace GameNoGame
                 Jump(Player);
             Gravity();
             Move(Player, Player.Velocity);
-            Move(Monster, Monster.Velocity);            
+            Move(Monster, Monster.Velocity);
             if (StayOnGround(Player)) Player.Velocity = new Vector(Player.Velocity.X, 0);
             if (HitTheRoof(Player)) Player.Velocity = new Vector(Player.Velocity.X, 10);
         }
