@@ -1,4 +1,4 @@
-﻿
+﻿using System;
 namespace GameNoGame
 {
     partial class Game
@@ -28,6 +28,7 @@ namespace GameNoGame
             else
                 MoveOnGround(moveOffset, isNeedJump);
             MonsterFind(Monster, Player);
+            Move(Monster, Monster.Velocity);
         }
 
         private void MoveInRope(Vector hookFixation)
@@ -60,7 +61,6 @@ namespace GameNoGame
                 Jump(Player);
             Gravity();
             Move(Player, Player.Velocity);
-            Move(Monster, Monster.Velocity);
             if (StayOnGround(Player)) Player.Velocity = new Vector(Player.Velocity.X, 0);
             if (HitTheRoof(Player)) Player.Velocity = new Vector(Player.Velocity.X, 10);
         }
@@ -120,8 +120,12 @@ namespace GameNoGame
         private void MoveOnGround(Monster monster, Player player)
         {
             var directionToAim = player.LeftTopLocation - monster.LeftTopLocation;
-            var movement = 20 * directionToAim.Normalize();
-            monster.Velocity = new Vector(movement.X, monster.Velocity.Y);
+            if (directionToAim.X > 20)
+                monster.Velocity = new Vector(20, monster.Velocity.Y);
+            else if (directionToAim.X < -20)
+                monster.Velocity = new Vector(-20, monster.Velocity.Y);
+            else
+                monster.Velocity = new Vector(directionToAim.X, monster.Velocity.Y);
         }
 
         private void Teleport(Monster monster, Player player)
