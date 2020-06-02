@@ -98,23 +98,24 @@ namespace GameNoGame
 
         public void Init()
         {
-            playerImage = Image.FromFile("Sprites\\Pizza1.png");
+            game = new Game(levelNumber);
+
+            playerImage = Image.FromFile("Sprites\\Pizza2.png");
             monsterImage = Image.FromFile("Sprites\\Monster1.png");
 
             playerAnimation = new CreatureAnimation(
-                new Player(new Vector(250, 480), new Size(128, 128)),
+                game.Player,
                 Frames.IdleFrames, Frames.RunFrames, Frames.JumpFrames, Frames.DeathFrames,
                 playerImage);
             player = (Player)playerAnimation.Creature;
 
             monsterAnimation = new CreatureAnimation(
-                new Monster(new Vector(0, 0), new Size(128, 128)),
+                game.Monster,
                 Frames.IdleFrames, Frames.RunFrames, Frames.JumpFrames, Frames.DeathFrames,
                 monsterImage);
             monster = (Monster)monsterAnimation.Creature;
 
-            game = new Game(levelNumber);
-            //game = new Game(new Map(levelNumber, player, monster), player, monster);           
+                   
         }
 
         private void Update(object sender, EventArgs e)
