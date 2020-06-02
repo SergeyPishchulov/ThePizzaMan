@@ -22,15 +22,11 @@ namespace GameNoGame
                         new Rectangle(new Vector(100, 100), new Size(200, 20)),
                         new Rectangle(new Vector(400, 100), new Size(600, 20)),
                         new Rectangle(new Vector(200, 250), new Size(200, 20)),
-
                         new Rectangle(new Vector(800, 300), new Size(100, 20)),
                         new Rectangle(new Vector(1000, 200), new Size(100, 20)),
-
-
                         new Rectangle(new Vector(0,0), new Size(2, 880)), // левый край
                         new Rectangle(new Vector(0,0), new Size(1440, 2)), // верхний край
                         new Rectangle(new Vector(1440 ,0), new Size(2, 880)), // правый край
-
                         new Rectangle(new Vector(1200, 600), new Size(1140, 20)),
                         new Rectangle(new Vector(100, 600), new Size(1000, 20)),
                         new Rectangle(new Vector(1300, 400), new Size(300, 20)),
@@ -67,7 +63,6 @@ namespace GameNoGame
                         new Rectangle(new Vector(0,0), new Size(1, 1024)), // левый край
                         new Rectangle(new Vector(0,0), new Size(1440, 1)), // верхний край
                         new Rectangle(new Vector(1440 ,0), new Size(1, 1024)), // правый край
-                        new Rectangle(new Vector(0, 1280), new Size(1440, 10)) // нижний край
                     };
                 Map = new Map(mapObjects);
             }
