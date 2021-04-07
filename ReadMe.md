@@ -6,4 +6,4 @@
     Пищулов Сергей ФТ-101
 
 ### Прототип игры созданный в Figma
-![alt text](Sprites/2021-04-07_21-51-25.png)
+![alt text](GameNoGame/Sprites/2021-04-07_21-51-25.png)
